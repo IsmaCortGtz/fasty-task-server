@@ -1,0 +1,7 @@
+POST http://localhost:5050/api/v1/user/singup
+Content-Type: application/json
+
+{
+  "username": "IsmaCortGtz",
+  "password": "Hellouda090@_"
+}
