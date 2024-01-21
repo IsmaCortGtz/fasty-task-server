@@ -17,35 +17,56 @@ The backend for `fasty-task`, an app to manage your scholar life. This backend o
 > The current version isn't stable and doesn't have implemented the full features documented yet.
 
 
-## Documentation 📕
-
-You can see the documentation in the [_docs_](./docs/) folder. Check the table below too.
-
 ### Table of Content
 
-- [Password Requeriments](./docs/Password%20requeriments.md)
-- [Environment Vars](./docs/Environment%20Vars.md)
-- [APIv1 Schemas](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md)
-  - [Grapgic Diagram](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#grapgic-diagram)
-  - [DB Schemas](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
-    - [User](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
-    - [Class](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-class)
-    - [Subject](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-subject)
-    - [Task](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-task)
-    - [Schedule](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-schedule)
-    - [Session](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-session)
-- [APIv1 Endpoints](./docs/APIv1%20Endpoints/README.md)
-  - [**User**](./docs/APIv1%20Endpoints/User.md)
-    - [Create new user - POST `/api/v1/user/signup`](./docs/APIv1%20Endpoints/User.md#post-apiv1usersignup)
-    - [Login with credentials - POST `/api/v1/user/login`](./docs/APIv1%20Endpoints/User.md#post-apiv1userlogin)
-    - [Join in new class - POST `/api/v1/user/join`](./docs/APIv1%20Endpoints/User.md#post-apiv1userjoin)
-    - [Leave a registered class - POST `/api/v1/user/leave`](./docs/APIv1%20Endpoints/User.md#post-apiv1userleave)
-    - [Get all info about user - GET `/api/v1/user/info`](./docs/APIv1%20Endpoints/User.md#get-apiv1userinfo)
-    - [Get just some info about user - GET `/api/v1/user/info/:keys`](./docs/APIv1%20Endpoints/User.md#get-apiv1userinfokeys)
-    - [Update info of user - POST `/api/v1/user/update`](./docs/APIv1%20Endpoints/User.md#post-apiv1userupdate)
-    - [Delete your user - DELETE `/api/v1/user/delete`](./docs/APIv1%20Endpoints/User.md#delete-apiv1userdelete)
-  - [**Class**](./docs/APIv1%20Endpoints/Class.md)
-    - [Create new class - POST `/api/v1/class/new`](./docs/APIv1%20Endpoints/Class.md#post-apiv1classnew)
+- [Documentation](#documentation-)
+- [Requirements](#requirements-)
+- [Run Locally](#run-locally-)
+- [License](#license-)
+
+
+## Documentation 📕
+
+You can see the documentation [here](./docs/README.md).
+
+
+
+## Requirements 📋
+
+`fasty-task-server` need the following to run:
+- [Node.js](https://nodejs.org/) v18+ _(you can use [nvm](https://github.com/nvm-sh/nvm))_.
+- [npm](https://www.npmjs.com/package/npm) _(normally included with node.js)_.
+- MondoDB _(I recomend [MongoDB Atlas](https://www.mongodb.com/atlas/))_.
+
+
+
+## Run Locally 🛠️
+
+1. Clone the project
+
+```bash
+  git clone https://github.com/IsmaCortGtz/fasty-task-server.git
+```
+
+2. Go to the project directory
+
+```bash
+  cd fasty-task-server
+```
+
+3. Install dependencies
+
+```bash
+  npm install
+```
+
+4. Config `.env` file using this [guide](./docs/Environment%20Vars.md).
+
+5. Start the server
+
+```bash
+  npm run start
+```
 
 
 
