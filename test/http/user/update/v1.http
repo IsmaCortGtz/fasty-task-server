@@ -1,0 +1,8 @@
+POST http://localhost:5050/api/v1/user/update
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+  "oldPassword": "12345aB_",
+  "newPassword": "12345aB_2"
+}

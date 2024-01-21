@@ -1,0 +1,2 @@
+DELETE http://localhost:5050/api/v1/user/delete
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTk0NzBmZDYxYTRiMTFhMzkzOTdjZjEiLCJ1c2VybmFtZSI6IlRlc3RpbmdVc2VyIiwiaWF0IjoxNzA0MjI3MDY5LCJleHAiOjE3MDQyMzU3MDl9.0t3eFoA20APk-RSOPXh6kuQ3-D8PXIkIAYbq14IbI8E

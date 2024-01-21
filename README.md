@@ -11,7 +11,7 @@
   <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a>
 </p>
 
-The backend for `fasty-task`. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars.
+The backend for `fasty-task`, an app to manage your scholar life. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars and use a compatible client _(see my [official one](.))_.
 
 > [!CAUTION]
 > The current version isn't stable and doesn't have implemented the full features documented yet.
@@ -24,7 +24,7 @@ You can see the documentation in the [_docs_](./docs/) folder. Check the table b
 ### Table of Content
 
 - [Password Requeriments](./docs/Password%20requeriments.md)
-- [Environment Vars](./docs/Environment%20Vars.md.md)
+- [Environment Vars](./docs/Environment%20Vars.md)
 - [APIv1 Schemas](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md)
   - [Grapgic Diagram](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#grapgic-diagram)
   - [DB Schemas](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
@@ -33,6 +33,7 @@ You can see the documentation in the [_docs_](./docs/) folder. Check the table b
     - [Subject](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-subject)
     - [Task](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-task)
     - [Schedule](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-schedule)
+    - [Session](./docs/APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-session)
 - [APIv1 Endpoints](./docs/APIv1%20Endpoints/README.md)
   - [**User**](./docs/APIv1%20Endpoints/User.md)
     - [Create new user - POST `/api/v1/user/signup`](./docs/APIv1%20Endpoints/User.md#post-apiv1usersignup)

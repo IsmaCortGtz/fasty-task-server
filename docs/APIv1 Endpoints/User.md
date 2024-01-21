@@ -642,7 +642,7 @@ const response = await fetch("/api/v1/user/info/username,classes,config,tasksCom
     <td>
       Send a JSON with the keys about anything you wanna update. <br>
       Available keys are: <code>username</code>, <code>config</code>, and <code>newPassword</code>, <code>oldPassword</code>. <br><br>
-      <b>Note:</b> You only need to send the new values. But, in config you will need to send the complete object inside the client because it will overwrite anything here. The class and tasks keys can be updated wiht speifics endpoints.  <br><br>
+      <b>Note:</b> You only need to send the new values. But, in config you will need to send the complete object inside the client because it will overwrite anything here. You can delete the config object sending <code>null</code>. The class and tasks keys can be updated wiht speifics endpoints.  <br><br>
       <b>Note:</b> If you wanna change your password you need to send <code>newPassword</code>, <code>oldPassword</code>. And them need to be different. <br><br>
       <pre lang="json"><code>{ 
   "username": &lt;username&gt;, 

@@ -1,3 +1,5 @@
+import { PasswordNeeded, PasswordRequirements } from './errors.js';
+
 export function meetRequirements (password) {
   if (password.length < 8) return false; // Min length
   if (password.length > 50) return false; // Max length
@@ -12,11 +14,11 @@ export function meetRequirements (password) {
 export function passwordCheck (request, response, next) {
   const { password } = request.body;
   if (!password) {
-    return response.status(400).send({ error: 'password needed' });
+    return next(new PasswordNeeded('password needed'));
   }
 
   if (!meetRequirements(password)) {
-    return response.status(400).send({ error: "password doesn't meet the requirements" });
+    return next(new PasswordRequirements("password doesn't meet the requirements"));
   }
 
   return next();

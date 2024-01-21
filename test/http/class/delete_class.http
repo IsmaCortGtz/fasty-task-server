@@ -1,8 +1,0 @@
-DELETE  http://localhost:5050/api/v1/class
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdkZTk2Y2M5YTE1Njg1Yjg1N2VlNWQiLCJ1c2VybmFtZSI6IklzbWFDb3J0R3R6IiwiaWF0IjoxNzAyNzU5MDI3LCJleHAiOjE3MDI3Njc2Njd9.MYBL_uC04FArkLKgDVo_DLRGHhsDpLEdwQdj-QTWKXg
-
-{
-  "classCode": "UTJCCDTSUDSM1BM2023C",
-  "password": "Astro090_"
-}

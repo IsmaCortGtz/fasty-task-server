@@ -11,8 +11,12 @@ import userSingupV1 from './singup/v1.js';
 /* Update */
 import userUpdateV1 from './update/v1.js';
 
+/* Delete */
+import userDeleteV1 from './delete/v1.js';
+
 // Declare routes
 const user = {
+  delete: { v1: userDeleteV1 },
   info: { v1: userInfoV1 },
   infoKey: { v1: userInfoKeyV1 },
   login: { v1: userLoginV1 },
