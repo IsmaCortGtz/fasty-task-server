@@ -10,7 +10,7 @@ You can see the full documentation of the project. Check the table below.
   - [Grapgic Diagram](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#grapgic-diagram)
   - [DB Schemas](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
     - [User](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
-    - [Class](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-class)
+    - [Course](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-course)
     - [Subject](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-subject)
     - [Task](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-task)
     - [Schedule](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-schedule)

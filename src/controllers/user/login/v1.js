@@ -1,19 +1,20 @@
 // Dependencies
 import { User } from '../../../models/User/v1.js';
+import { InvalidCredentials } from '../../../middlewares/errors.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // Route
-export default async function userLoginV1 (req, res) {
+export default async function userLoginV1 (req, res, next) {
   const { username, password } = req.body;
   const user = await User.findOne({ username });
 
-  const passwordCorrect = user === null
+  const credentialsCorrect = user === null
     ? false
     : await bcrypt.compare(password, user.password);
 
-  if (!passwordCorrect) {
-    return res.status(401).send({ error: 'Invalid username or password' });
+  if (!credentialsCorrect) {
+    return next(new InvalidCredentials('Invalid username or password'));
   }
 
   const token = jwt.sign({
@@ -23,7 +24,7 @@ export default async function userLoginV1 (req, res) {
     expiresIn: process.env.JWT_EXPIRE
   });
 
-  res.send({
+  return res.send({
     username,
     token
   });

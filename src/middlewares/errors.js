@@ -9,10 +9,13 @@ function errorMaker (name) {
 
 export const UrlNotFound = errorMaker('UrlNotFound');
 export const ApiVersionError = errorMaker('ApiVersionError');
+export const UnknowError = errorMaker('UnknowError');
 
-// Password
+// Account
 export const PasswordNeeded = errorMaker('PasswordNeeded');
 export const PasswordRequirements = errorMaker('PasswordRequirements');
+export const InvalidCredentials = errorMaker('InvalidCredentials');
+export const UsernameInUse = errorMaker('UsernameInUse');
 
 // JWT
 export const JsonWebTokenError = errorMaker('JsonWebTokenError');

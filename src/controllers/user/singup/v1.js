@@ -1,16 +1,15 @@
 // Dependencies
 import { User } from '../../../models/User/v1.js';
+import { UsernameInUse } from '../../../middlewares/errors.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // Route
-export default async function userSingupV1 (req, res) {
+export default async function userSingupV1 (req, res, next) {
   const { username, password: plainPassword } = req.body;
   const user = await User.findOne({ username });
 
-  if (user) {
-    return res.status(409).send({ error: 'Username already exists' });
-  }
+  if (user) return next(new UsernameInUse('Username already exists'));
 
   const newUser = new User({
     username,
@@ -26,7 +25,7 @@ export default async function userSingupV1 (req, res) {
     expiresIn: process.env.JWT_EXPIRE
   });
 
-  res.send({
+  return res.send({
     username: newUser.username,
     token
   });

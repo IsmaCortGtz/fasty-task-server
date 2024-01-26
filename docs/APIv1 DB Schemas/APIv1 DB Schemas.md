@@ -7,7 +7,7 @@ The are all the DB Schemas of this API version. You can go back [here](../README
 - [Grapgic Diagram](#grapgic-diagram)
 - [DB Schemas](#db-schema-user)
   - [User](#db-schema-user)
-  - [Class](#db-schema-class)
+  - [Course](#db-schema-course)
   - [Subject](#db-schema-subject)
   - [Task](#db-schema-task)
   - [Schedule](#db-schema-schedule)
@@ -17,9 +17,9 @@ The are all the DB Schemas of this API version. You can go back [here](../README
 
 ## Graphic Diagram
 
-You can see a graphic representation [here](.) or in the image below.
+You can see a the logical schema of the DB in the image below. 
 
-![Diagram]()
+![Diagram](./APIv1%20DB%20-%20Logical%20Schema.png)
 
 
 
@@ -28,7 +28,7 @@ You can see a graphic representation [here](.) or in the image below.
 ### Important
 
 - The fields `_id` and `__v` are assigned by MongoDB, the client can't change it.
-- the `config` field is reserved for the client. Use an unique id for each front-end. `{ "official-web": {...} }`
+- the `config` field is reserved for the client. Use an unique id for each front-end. `{ "official-client": {...} }`
 - Any `ObjectId` with a different key than `_id` represents a relation with other document.
 
 ### Struct
@@ -38,8 +38,8 @@ You can see a graphic representation [here](.) or in the image below.
  "_id": ObjectID, // Assigned by MongoDB
  "username": String,
  "password": String,
- "studentClass": [ObjectID],
- "adminClass": [ObjectID],
+ "courses": [ObjectID],
+ "adminCourses": [ObjectID],
  "tasksCompleted": [ObjectID],
  "config": { <client>: {} }, // Any JSON, the server wont validate a format, you can put anything you need.
 }
@@ -48,18 +48,16 @@ You can see a graphic representation [here](.) or in the image below.
 
 
 
-## DB Schema: `Class`
+## DB Schema: `Course`
 
 ### Struct
 
 ```javascript
 {
  "_id": ObjectID, // Assigned by MongoDB
- "classCode": String,
+ "classcode": String,
  "password": String,
  "shcedule": ObjectID,
- "students": [ObjectID],
- "admins": [ObjectID],
  "subjects": [ObjectID],
  "tasks": [ObjectID],
  "sessions": [ObjectID]
@@ -75,9 +73,10 @@ You can see a graphic representation [here](.) or in the image below.
 ```javascript
 {
  "_id": ObjectID, // Assigned by MongoDB
- "classID": ObjectID,
  "teacher": String,
- "subject": String
+ "teacherEmail": String,
+ "subjectName": String,
+ "links": [String]
 }
 ```
 
@@ -90,7 +89,6 @@ You can see a graphic representation [here](.) or in the image below.
 ```javascript
 {
  "_id": ObjectID, // Assigned by MongoDB
- "classID": ObjectID,
  "subject": ObjectID,
  "deadline": Date,
  "openDate": Date,
@@ -113,7 +111,6 @@ You can see a graphic representation [here](.) or in the image below.
 ```javascript
 {
   "_id": ObjectID, // Assigned by MongoDB
-  "classID": ObjectID,
   "monday": [ObjectID],  // Session Id
   "tuesday": [ObjectID],
   "wednesday": [ObjectID],
@@ -137,7 +134,6 @@ You can see a graphic representation [here](.) or in the image below.
 ```javascript
 {
  "_id": ObjectID, // Assigned by MongoDB
- "classID": ObjectID,
  "subject": ObjectID,
  "starts": Date,
  "ends": Date,

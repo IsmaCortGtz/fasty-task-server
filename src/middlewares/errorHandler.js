@@ -2,36 +2,27 @@ import { UrlNotFound } from './errors.js';
 
 // Declaretion of errors actions
 const ERROR_HANDLERS = {
-  SyntaxError: (res) =>
-    res.status(401).json({ error: 'Invalid request' }),
+  UnknowError: { code: 500, message: 'Unexpected error has been ocurred' },
+  SyntaxError: { code: 401, message: 'Invalid request' },
+  JsonWebTokenError: { code: 401, message: 'token missing or invalid' },
+  TokenExpiredError: { code: 401, message: 'token expired' },
+  ApiVersionError: { code: 400, message: 'api version error' },
+  UrlNotFound: { code: 404, message: 'url not found' },
+  PasswordNeeded: { code: 404, message: 'password needed' },
+  PasswordRequirements: { code: 404, message: "password doesn't meet the requirements" },
+  InvalidCredentials: { code: 401, message: 'invalid credentials' },
+  UsernameInUse: { code: 409, message: 'username already in use' },
 
-  JsonWebTokenError: (res) =>
-    res.status(401).json({ error: 'token missing or invalid' }),
-
-  TokenExpiredError: (res) =>
-    res.status(401).json({ error: 'token expired' }),
-
-  ApiVersionError: (res) =>
-    res.status(400).json({ error: 'api version error' }),
-
-  UrlNotFound: (res) =>
-    res.status(404).json({ error: 'url not found' }),
-
-  PasswordNeeded: (res) =>
-    res.status(404).json({ error: 'password needed' }),
-
-  PasswordRequirements: (res) =>
-    res.status(404).json({ error: "password doesn't meet the requirements" }),
-
-  defaultError: (res, error) => {
+  defaultError: (error) => {
     console.error(error.name, error);
-    res.status(500).send(error || { error: 'Unexpected error' });
+    return { code: 500, message: 'Unexpected error has been ocurred', name: 'Unexpectederror' };
   }
 };
+
 // Handler
 export function errorHandler (error, req, res, next) {
-  const handler = ERROR_HANDLERS[error.name] || ERROR_HANDLERS.defaultError;
-  handler(res, error);
+  const handler = ERROR_HANDLERS[error.name] || ERROR_HANDLERS.defaultError(error);
+  return res.status(handler.code).json({ message: error.message || handler.message, name: error.name });
 }
 
 // 404 handler

@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose';
 
-const classSchema = new Schema({
+const courseSchema = new Schema({
   classCode: String,
   password: String,
   schedule: Schema.ObjectId,
@@ -11,4 +11,4 @@ const classSchema = new Schema({
   sessions: [Schema.ObjectId]
 });
 
-export const Class = model('Class', classSchema);
+export const Course = model('Course', courseSchema);

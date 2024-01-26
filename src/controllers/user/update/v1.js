@@ -1,16 +1,14 @@
 // Dependencies
 import { User } from '../../../models/User/v1.js';
 import { meetRequirements } from '../../../middlewares/passwordCheck.js';
+import { JsonWebTokenError, UnknowError } from '../../../middlewares/errors.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export default async function userUpdateV1 (req, res, next) {
   const { username, config, newPassword, oldPassword } = req.body;
-
   const user = await User.findById(req._id);
-  if (!user) {
-    res.send({ error: 'token missing or invalid' });
-  }
+  if (!user) return next(new JsonWebTokenError());
   const status = {};
 
   // Change username
@@ -60,9 +58,7 @@ export default async function userUpdateV1 (req, res, next) {
   }
 
   const isSaved = await user.save();
-  if (user !== isSaved) {
-    return res.status(500).send({ error: 'Unknow error saving data' });
-  }
+  if (user !== isSaved) return next(new UnknowError('Unknow error saving data'));
 
   if (status.username) {
     const token = jwt.sign({
