@@ -23,3 +23,7 @@ export function passwordCheck (request, response, next) {
 
   return next();
 }
+
+export function usernameCheck (username) {
+  return /^[a-zA-Z][a-zA-Z0-9]{4,19}$/.test(username);
+}

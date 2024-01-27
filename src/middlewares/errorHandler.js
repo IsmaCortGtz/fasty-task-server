@@ -10,6 +10,7 @@ const ERROR_HANDLERS = {
   UrlNotFound: { code: 404, message: 'url not found' },
   PasswordNeeded: { code: 404, message: 'password needed' },
   PasswordRequirements: { code: 404, message: "password doesn't meet the requirements" },
+  UsernameRequirements: { code: 404, message: "username doesn't meet the requirements" },
   InvalidCredentials: { code: 401, message: 'invalid credentials' },
   UsernameInUse: { code: 409, message: 'username already in use' },
 

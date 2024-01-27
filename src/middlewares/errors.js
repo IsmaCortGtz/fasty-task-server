@@ -14,6 +14,7 @@ export const UnknowError = errorMaker('UnknowError');
 // Account
 export const PasswordNeeded = errorMaker('PasswordNeeded');
 export const PasswordRequirements = errorMaker('PasswordRequirements');
+export const UsernameRequirements = errorMaker('UsernameRequirements');
 export const InvalidCredentials = errorMaker('InvalidCredentials');
 export const UsernameInUse = errorMaker('UsernameInUse');
 

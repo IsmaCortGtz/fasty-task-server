@@ -204,7 +204,7 @@ const response = await axios.post("/api/v1/user/login", requestBody, {
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Join to a new class. <i>(Authenticated user needed)</i></td>
+    <td> Join to a new course. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
@@ -228,15 +228,15 @@ const response = await axios.post("/api/v1/user/login", requestBody, {
   <tr>
     <td rowspan="2"><b> Request <br> Body </b></td>
     <td>
-      For normal acces to the class use this. <br>
-      <code>{ "classCode": &lt;classCode&gt; }</code>
+      For normal acces to the course use this. <br>
+      <code>{ "classcode": &lt;classcode&gt; }</code>
     </td>
   </tr>
 
   <tr>
     <td>
-      For admin acces to the class use this. If you have normal acces to the class you can send this requet with the class password and succesfully get admin acces. <br>
-      <code>{ "classCode": &lt;classCode&gt;, password: &lt;classPassword&gt; }</code>
+      For admin acces to the course use this. If you have normal acces to the course you can send this requet with the course password and succesfully get admin acces. <br>
+      <code>{ "classcode": &lt;classcode&gt;, password: &lt;classPassword&gt; }</code>
     </td>
   </tr>
 
@@ -267,7 +267,7 @@ const response = await axios.post("/api/v1/user/login", requestBody, {
   <tr>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> You are already registered in the class with same acces. <br>
+      <b>Summary:</b> You are already registered in the course with same acces. <br>
       <b>Content:</b> <code>{ "error": "already registered" }</code>
     </td>
   </tr>
@@ -313,7 +313,7 @@ const response = await axios.post("/api/v1/user/join", requestBody, {
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Leave of a registered class. <i>(Authenticated user needed)</i></td>
+    <td> Leave of a registered course. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
@@ -337,8 +337,8 @@ const response = await axios.post("/api/v1/user/join", requestBody, {
   <tr>
     <td><b> Request <br> Body </b></td>
     <td>
-      The classcode of the class you want to leave. <br>
-      <code>{ "classCode": &lt;classCode&gt; }</code>
+      The classcode of the course you want to leave. <br>
+      <code>{ "classcode": &lt;classcode&gt; }</code>
     </td>
   </tr>
 
@@ -369,7 +369,7 @@ const response = await axios.post("/api/v1/user/join", requestBody, {
   <tr>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> You aren't in this class. <br>
+      <b>Summary:</b> You aren't in this course. <br>
       <b>Content:</b> <code>{ "error": "not registered" }</code>
     </td>
   </tr>

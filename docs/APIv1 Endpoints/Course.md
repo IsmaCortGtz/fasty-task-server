@@ -1,26 +1,31 @@
-# API v1 - Class Endpoints
+# API v1 - Course Endpoints
 
-The are all the class endpoints for the APIv1. You can go back [here](./README.md).
+The are all the course endpoints for the APIv1. You can go back [here](./README.md).
 
 ### Table of content
 
 - **Class**
-  - [Create new class - POST `/api/v1/class/new`](#post-apiv1classnew)
+  - [Create new course - POST `/api/v1/course/new`](#post-apiv1coursenew)
+  - [Delete a course - DELETE `/api/v1/course/delete`]()
+  - [Change password of a course - POST `/api/v1/course/passwordChange`]()
+  - [Get tasks of a course - GET `/api/v1/course/tasks`]()
+  - [Get schedule of a course - GET `/api/v1/course/schedule`]()
+  - [Get subjects of a course - GET `/api/v1/course/subjects`]()
 
 
 
-## POST `/api/v1/class/new`
+## POST `/api/v1/course/new`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Create a new class. <i>(Authenticated user needed)</i></td>
+    <td> Create a new course. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/class/new </td>
+    <td> /api/v1/course/new </td>
   </tr>
 
   <tr>
@@ -40,7 +45,7 @@ The are all the class endpoints for the APIv1. You can go back [here](./README.m
     <td><b> Request <br> Body </b></td>
     <td>
       The password will be needed just for new admin users. <br>
-      <code>{ "classCode": &lt;classCode&gt;,  "password": &lt;password&gt; }</code>
+      <code>{ "classcode": &lt;classcode&gt;,  "password": &lt;password&gt; }</code>
     </td>
   </tr>
 
@@ -55,15 +60,15 @@ The are all the class endpoints for the APIv1. You can go back [here](./README.m
     <td rowspan="6"><b> Response <br> on error </b></td>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> The given class already exists. <br>
-      <b>Content:</b> <code>{ "error": "classCode already exists" }</code>
+      <b>Summary:</b> The given course already exists. <br>
+      <b>Content:</b> <code>{ "error": "classcode already exists" }</code>
     </td>
   </tr>
 
   <tr><td>
       <b>Code:</b> 400 Bad Request <br>
-      <b>Summary:</b> You didn't give an classCode in the body request. <br>
-      <b>Content:</b> <code>{ "error": "classCode needed" }</code>
+      <b>Summary:</b> You didn't give an classcode in the body request. <br>
+      <b>Content:</b> <code>{ "error": "classcode needed" }</code>
   </td></tr>
 
   <tr><td>
@@ -118,7 +123,7 @@ const headers = { "Content-Type": "application/json", "Authorization": `Bearer $
 
 
 // JS Fetch
-const response = await fetch("/api/v1/class/new", {
+const response = await fetch("/api/v1/course/new", {
     method: "POST",
     body: JSON.stringify(requestBody),
     headers
@@ -126,5 +131,5 @@ const response = await fetch("/api/v1/class/new", {
 
 
 // JS Axios
-const response = await axios.post("/api/v1/class/new", requestBody, { headers });
+const response = await axios.post("/api/v1/course/new", requestBody, { headers });
 ```

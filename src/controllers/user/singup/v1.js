@@ -1,14 +1,16 @@
 // Dependencies
 import { User } from '../../../models/User/v1.js';
-import { UsernameInUse } from '../../../middlewares/errors.js';
+import { usernameCheck } from '../../../middlewares/passwordCheck.js';
+import { UsernameInUse, UsernameRequirements } from '../../../middlewares/errors.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // Route
 export default async function userSingupV1 (req, res, next) {
   const { username, password: plainPassword } = req.body;
-  const user = await User.findOne({ username });
+  if (!usernameCheck(username)) return next(new UsernameRequirements('Username does not meet requirements'));
 
+  const user = await User.findOne({ username });
   if (user) return next(new UsernameInUse('Username already exists'));
 
   const newUser = new User({

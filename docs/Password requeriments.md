@@ -29,3 +29,14 @@ All the passwords in this back-end need to follow the next requirements.
 - `jdhHJHJDh9(/&%%$%$__987867)`
 - `OMHIHIVSJIOKAKP:XAOEA-opqkfjuyumew&/&%&/()`
 - `jkdpe BSOCT 7443 _ÑP!=)(/())]**`
+
+
+
+## Username Requirements 🤖 
+
+I would like to use this space to show the requirements for usernames.
+
+- At least a length of 5 characters.
+- Max length of 20 characters.
+- The first character needs to bee a letter _(uppercase or lowercase)_.
+- You only can use letters and numbers _(not symbols and spaces)_.
