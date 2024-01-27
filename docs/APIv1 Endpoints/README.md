@@ -14,5 +14,5 @@ The are all the endpoints for the APIv1.
   - [Update info of user - POST `/api/v1/user/update`](./User.md#post-apiv1userupdate)
   - [Delete your user - DELETE `/api/v1/user/delete`](./User.md#delete-apiv1userdelete)
 
-- [**Class**](./Class.md)
-  - [Create new class - POST `/api/v1/class/new`](./Class.md#post-apiv1classnew)
+- [**Course**](./Class.md)
+  - [Create new course - POST `/api/v1/class/new`](./Course.md#post-apiv1coursenew)
