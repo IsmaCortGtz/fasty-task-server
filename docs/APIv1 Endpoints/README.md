@@ -14,5 +14,10 @@ The are all the endpoints for the APIv1.
   - [Update info of user - POST `/api/v1/user/update`](./User.md#post-apiv1userupdate)
   - [Delete your user - DELETE `/api/v1/user/delete`](./User.md#delete-apiv1userdelete)
 
-- [**Course**](./Class.md)
-  - [Create new course - POST `/api/v1/class/new`](./Course.md#post-apiv1coursenew)
+- [**Course**](./Course.md)
+  - [Create new course - POST `/api/v1/course/new`](./Course.md#post-apiv1coursenew)
+  - [Delete a course - DELETE `/api/v1/course/delete/:classcode`](./Course.md#delete-apiv1coursedeleteclasscode)
+  - [Change password of a course - POST `/api/v1/course/passwordChange`](./Course.md#post-apiv1coursepasswordchange)
+  - [Get tasks ID of a course - GET `/api/v1/course/tasks/:classcode`](./Course.md#get-apiv1coursetasksclasscode)
+  - [Get schedule ID of a course - GET `/api/v1/course/schedule/:classcode`](./Course.md#get-apiv1coursescheduleclasscode)
+  - [Get subjects ID of a course - GET `/api/v1/course/subjects/:classcode`](./Course.md#get-apiv1coursesubjectsclasscode)
