@@ -73,6 +73,7 @@ You can see a the logical schema of the DB in the image below.
 ```javascript
 {
  "_id": ObjectID, // Assigned by MongoDB
+ "course": ObjectID,
  "teacher": String,
  "teacherEmail": String,
  "subjectName": String,
@@ -90,6 +91,7 @@ You can see a the logical schema of the DB in the image below.
 {
  "_id": ObjectID, // Assigned by MongoDB
  "subject": ObjectID,
+ "course": ObjectID,
  "deadline": Date,
  "openDate": Date,
  "taskName": String,
@@ -111,6 +113,7 @@ You can see a the logical schema of the DB in the image below.
 ```javascript
 {
   "_id": ObjectID, // Assigned by MongoDB
+  "course": ObjectID,
   "monday": [ObjectID],  // Session Id
   "tuesday": [ObjectID],
   "wednesday": [ObjectID],
@@ -135,6 +138,7 @@ You can see a the logical schema of the DB in the image below.
 {
  "_id": ObjectID, // Assigned by MongoDB
  "subject": ObjectID,
+ "course": ObjectID,
  "starts": Date,
  "ends": Date,
  "classroom": String,

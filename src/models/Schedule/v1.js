@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 
 const scheduleSchema = new Schema({
-  classID: Schema.ObjectId,
+  course: Schema.ObjectId,
   monday: [Schema.ObjectID], // Session Id
   tuesday: [Schema.ObjectID],
   wednesday: [Schema.ObjectID],

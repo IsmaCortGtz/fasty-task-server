@@ -3,8 +3,8 @@ import { model, Schema } from 'mongoose';
 const userSchema = new Schema({
   username: String,
   password: String,
-  studentClass: [Schema.ObjectId],
-  adminClass: [Schema.ObjectId],
+  courses: [Schema.ObjectId],
+  adminCourses: [Schema.ObjectId],
   tasksCompleted: [Schema.ObjectId],
   config: {}
 });

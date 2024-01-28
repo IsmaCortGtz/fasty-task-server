@@ -1,9 +1,11 @@
 import { model, Schema } from 'mongoose';
 
 const subjectSchema = new Schema({
-  classID: Schema.ObjectId,
+  course: Schema.ObjectId,
   teacher: String,
-  subject: String
+  teacherEmail: String,
+  subjectName: String,
+  links: [String]
 });
 
 export const Subject = model('Subject', subjectSchema);
