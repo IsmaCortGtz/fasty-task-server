@@ -1,4 +1,4 @@
-import { PasswordNeeded, PasswordRequirements } from './errors.js';
+import { ParamsNeeded, ParamsRequirements } from './errors.js';
 
 export function meetRequirements (password) {
   if (password.length < 8) return false; // Min length
@@ -11,19 +11,45 @@ export function meetRequirements (password) {
   return true;
 }
 
+export function usernameRequirements (username) {
+  return /^[a-zA-Z][a-zA-Z0-9]{4,19}$/.test(username);
+}
+
 export function passwordCheck (request, response, next) {
   const { password } = request.body;
   if (!password) {
-    return next(new PasswordNeeded('password needed'));
+    return next(new ParamsNeeded('password needed'));
   }
 
   if (!meetRequirements(password)) {
-    return next(new PasswordRequirements("password doesn't meet the requirements"));
+    return next(new ParamsRequirements("password doesn't meet the requirements"));
   }
 
   return next();
 }
 
-export function usernameCheck (username) {
-  return /^[a-zA-Z][a-zA-Z0-9]{4,19}$/.test(username);
+export function usernameCheck (request, response, next) {
+  const { username } = request.body;
+  if (!username) {
+    return next(new ParamsNeeded('username needed'));
+  }
+
+  if (!usernameRequirements(username)) {
+    return next(new ParamsRequirements("username doesn't meet the requirements"));
+  }
+
+  return next();
+}
+
+export function classcodeCheck (request, response, next) {
+  const { classcode } = request.body;
+  if (!classcode) {
+    return next(new ParamsNeeded('classcode needed'));
+  }
+
+  if (!usernameRequirements(classcode)) {
+    return next(new ParamsRequirements("classcode doesn't meet the requirements"));
+  }
+
+  return next();
 }

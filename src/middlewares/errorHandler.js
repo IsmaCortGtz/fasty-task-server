@@ -13,6 +13,9 @@ const ERROR_HANDLERS = {
   UsernameRequirements: { code: 404, message: "username doesn't meet the requirements" },
   InvalidCredentials: { code: 401, message: 'invalid credentials' },
   UsernameInUse: { code: 409, message: 'username already in use' },
+  CourseInUse: { code: 409, message: 'classcode already in use' },
+  ParamsNeeded: { code: 400, message: "some params doesn't found" },
+  ParamsRequirements: { code: 400, message: "some params doesn't meet the requirements" },
 
   defaultError: (error) => {
     console.error(error.name, error);

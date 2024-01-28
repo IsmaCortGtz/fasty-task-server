@@ -20,3 +20,8 @@ export const UsernameInUse = errorMaker('UsernameInUse');
 
 // JWT
 export const JsonWebTokenError = errorMaker('JsonWebTokenError');
+
+// Params
+export const ParamsNeeded = errorMaker('ParamsNeeded');
+export const ParamsRequirements = errorMaker('ParamsRequirements');
+export const CourseInUse = errorMaker('CourseInUse');
