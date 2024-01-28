@@ -8,6 +8,7 @@ import { errorHandler, handler404 } from './src/middlewares/errorHandler.js';
 
 // Importing routers
 import userRouter from './src/routes/user/index.js';
+import courseRouter from './src/routes/course/index.js';
 
 // Constants
 dotenv.config();
@@ -18,8 +19,12 @@ const PORT = process.env.PORT || 8080;
 connectDB(); // Start mongoose
 app.use(express.json());
 
+// Endpoit to avoid free hostings to sleep (you need to send a request here)
+app.get('/api/awake', (req, res) => res.send('I am awake'));
+
 // Routes
 app.use('/api/:version/user', userRouter);
+app.use('/api/:version/course', courseRouter);
 
 // Error handler
 app.use(handler404);
