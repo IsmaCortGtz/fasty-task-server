@@ -177,15 +177,13 @@ const response = await axios.post("/api/v1/course/new", requestBody, { headers }
     </td>
   </tr>
 
-  <tr><td>
-      <b>Code:</b> 400 Bad Request
-      <span>
-
-  **Summary:** The password doesn't meet the requirements, you can see them [here](../Password%20requeriments.md).
-
-  </span>
-      <b>Content:</b> <code>{ "error": "password doesn't meet the requirements" }</code>
-  </td></tr>
+  <tr>
+    <td>
+      <b>Code:</b> 404 Not Found <br>
+      <b>Summary:</b> You didn't give the correct classcode or it doesn't exists <br>
+      <b>Content:</b> <code>{ "error": "missing or invalid classcode" }</code>
+    </td>
+  </tr>
 
   <tr>
     <td>

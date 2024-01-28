@@ -14,6 +14,7 @@ const ERROR_HANDLERS = {
   InvalidCredentials: { code: 401, message: 'invalid credentials' },
   UsernameInUse: { code: 409, message: 'username already in use' },
   CourseInUse: { code: 409, message: 'classcode already in use' },
+  AccessDenied: { code: 409, message: 'you do not have access for this source' },
   ParamsNeeded: { code: 400, message: "some params doesn't found" },
   ParamsRequirements: { code: 400, message: "some params doesn't meet the requirements" },
 
