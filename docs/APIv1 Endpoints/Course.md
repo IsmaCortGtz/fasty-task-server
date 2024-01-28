@@ -118,7 +118,7 @@ The are all the course endpoints for the APIv1. You can go back [here](./README.
 
 ```JS
 // Request data
-const requestBody = { classCode: "String", password: "String" };
+const requestBody = { classcode: "String", password: "String" };
 const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
@@ -140,7 +140,7 @@ const response = await axios.post("/api/v1/course/new", requestBody, { headers }
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Delete a course. <i>(Authenticated user needed)</i></td>
+    <td> Delete a course and dependencies (tasks, subjects, etc.). <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
@@ -156,7 +156,6 @@ const response = await axios.post("/api/v1/course/new", requestBody, { headers }
   <tr>
     <td><b> Request <br> Headers </b></td>
     <td>
-      <code>Content-Type: application/json</code> <br>
       <code>Authorization: Bearer &lt;JWT&gt;</code>
     </td>
   </tr>
@@ -164,7 +163,22 @@ const response = await axios.post("/api/v1/course/new", requestBody, { headers }
   <tr>
     <td><b> Response <br> on success </b></td>
     <td>
-      <b>Code:</b> 204 No Content <br>
+      <b>Code:</b> 200 Ok <br>
+      <b>Summary:</b> A JSON that indicates how many data was deleted <br><br>
+<span>
+      
+```JS
+{
+  fromUser: 0, // Deleted from your account (admin courses).
+  course: 0, // Course deleted.
+  tasks: 0, // Number of tasks in course deleted.
+  subjects: 0, // Number of subjects in course deleted.
+  sessions: 0, // Number of sessions in course deleted.
+  schedule: 0 // Number of schedule in course deleted.
+};
+```
+
+</span>
     </td>
   </tr>
 
@@ -216,7 +230,7 @@ const response = await axios.post("/api/v1/course/new", requestBody, { headers }
 
 ```JS
 // Request data
-const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
+const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
 const response = await fetch("/api/v1/course/delete/example", { method: "DELETE", headers });
@@ -331,7 +345,7 @@ const response = await axios.delete("/api/v1/course/delete/example", { headers }
 
 ```JS
 // Request data
-const requestBody = { classCode: "String", oldPassword: "String", newPassword: "String" };
+const requestBody = { classcode: "String", oldPassword: "String", newPassword: "String" };
 const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
@@ -369,7 +383,6 @@ const response = await axios.post("/api/v1/course/passwordchange", requestBody, 
   <tr>
     <td><b> Request <br> Headers </b></td>
     <td>
-      <code>Content-Type: application/json</code> <br>
       <code>Authorization: Bearer &lt;JWT&gt;</code>
     </td>
   </tr>
@@ -429,7 +442,7 @@ const response = await axios.post("/api/v1/course/passwordchange", requestBody, 
 
 ```JS
 // Request data
-const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
+const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
 const response = await fetch("/api/v1/course/tasks/example", { headers });
@@ -462,7 +475,6 @@ const response = await axios.get("/api/v1/course/tasks/example", { headers });
   <tr>
     <td><b> Request <br> Headers </b></td>
     <td>
-      <code>Content-Type: application/json</code> <br>
       <code>Authorization: Bearer &lt;JWT&gt;</code>
     </td>
   </tr>
@@ -522,7 +534,7 @@ const response = await axios.get("/api/v1/course/tasks/example", { headers });
 
 ```JS
 // Request data
-const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
+const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
 const response = await fetch("/api/v1/course/schedule/example", { headers });
@@ -555,7 +567,6 @@ const response = await axios.get("/api/v1/course/schedule/example", { headers })
   <tr>
     <td><b> Request <br> Headers </b></td>
     <td>
-      <code>Content-Type: application/json</code> <br>
       <code>Authorization: Bearer &lt;JWT&gt;</code>
     </td>
   </tr>
@@ -615,7 +626,7 @@ const response = await axios.get("/api/v1/course/schedule/example", { headers })
 
 ```JS
 // Request data
-const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
+const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
 const response = await fetch("/api/v1/course/subjects/example", { headers });
