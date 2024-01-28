@@ -260,7 +260,7 @@ const response = await axios.delete("/api/v1/course/delete/example", { headers }
     <td><b> Request <br> Body </b></td>
     <td>
       You need to send the three following fields. <br>
-      <code>{ "classcode": &lt;classcode&gt;,  "oldOassword": &lt;password&gt;,  "newOassword": &lt;password&gt; }</code>
+      <code>{ "classcode": &lt;classcode&gt;,  "oldPassword": &lt;password&gt;,  "newPassword": &lt;password&gt; }</code>
     </td>
   </tr>
 

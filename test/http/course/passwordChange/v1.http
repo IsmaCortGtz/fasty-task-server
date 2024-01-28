@@ -1,0 +1,9 @@
+POST http://localhost:5050/api/v1/course/passwordChange
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+  "classcode": "DEVTESTCLASSCODE2024",
+  "oldPassword": "classcode12345aB_3",
+  "newPassword": "classcode12345aB_3"
+}
