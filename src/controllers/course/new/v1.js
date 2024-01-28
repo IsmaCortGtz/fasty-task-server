@@ -1,4 +1,5 @@
 // Dependencies
+import bcrypt from 'bcrypt';
 import { User } from '../../../models/User/v1.js';
 import { Course } from '../../../models/Course/v1.js';
 import { CourseInUse, UnknowError } from '../../../middlewares/errors.js';
@@ -12,7 +13,8 @@ export async function courseNewV1 (req, res, next) {
   if (courseExists) return next(new CourseInUse());
 
   // Cerate the new course
-  const newCourse = new Course({ classcode, password });
+  const hashedPassword = await bcrypt.hash(password, parseInt(process.env.BCRYPT_SALTROUND));
+  const newCourse = new Course({ classcode, password: hashedPassword });
   newCourse.save();
   if (!newCourse) return next(new UnknowError('unknow error has been ocurred creating course'));
 
