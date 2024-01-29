@@ -1,0 +1,2 @@
+GET http://localhost:5050/api/v1/course/subjects/DEVTESTCLASSCODE2024
+Authorization: Bearer token

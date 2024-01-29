@@ -14,5 +14,8 @@ const courseRouter = Router({ mergeParams: true });
 courseRouter.post('/new', versionHandler(1), checkJWT, passwordCheck, classcodeCheck, course.new.v1);
 courseRouter.delete('/delete/:classcode', versionHandler(1), checkJWT, course.delete.v1);
 courseRouter.post('/passwordchange', versionHandler(1), checkJWT, course.passwordChange.v1);
+courseRouter.get('/tasks/:classcode', versionHandler(1), checkJWT, course.getId.v1('tasks'));
+courseRouter.get('/schedule/:classcode', versionHandler(1), checkJWT, course.getId.v1('schedule'));
+courseRouter.get('/subjects/:classcode', versionHandler(1), checkJWT, course.getId.v1('subjects'));
 
 export default courseRouter;
