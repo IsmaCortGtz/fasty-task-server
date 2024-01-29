@@ -11,7 +11,7 @@
   <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a>
 </p>
 
-The backend for `fasty-task`, an app to manage your scholar life. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars and use a compatible client _(see my [official one](.))_.
+The backend for `fasty-task`, an app to manage your scholar life. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars and use a compatible client _(see my [official web one](https://github.com/IsmaCortGtz/fasty-task-react))_.
 
 > [!CAUTION]
 > The current version isn't stable and doesn't have implemented the full features documented yet.
@@ -21,7 +21,7 @@ The backend for `fasty-task`, an app to manage your scholar life. This backend o
 
 - [Documentation](#documentation-)
 - [Requirements](#requirements-)
-- [Run Locally](#run-locally-)
+- [Run Locally](#run-locally-%EF%B8%8F)
 - [License](#license-)
 
 
