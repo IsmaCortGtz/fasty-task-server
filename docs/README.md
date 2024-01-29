@@ -33,3 +33,8 @@ You can see the full documentation of the project. Check the table below.
     - [Get tasks ID of a course - GET `/api/v1/course/tasks/:classcode`](./APIv1%20Endpoints/Course.md#get-apiv1coursetasksclasscode)
     - [Get schedule ID of a course - GET `/api/v1/course/schedule/:classcode`](./APIv1%20Endpoints/Course.md#get-apiv1coursescheduleclasscode)
     - [Get subjects ID of a course - GET `/api/v1/course/subjects/:classcode`](./APIv1%20Endpoints/Course.md#get-apiv1coursesubjectsclasscode)
+  - [**Subject**](./APIv1%20Endpoints/Subject.md)
+    - [Create new subject - POST `/api/v1/subject/new`](./APIv1%20Endpoints/Subject.md#post-apiv1subjectnew)
+    - [Update data of subject - POST `/api/v1/subject/update`](./APIv1%20Endpoints/Subject.md#post-apiv1subjectupdate)
+    - [Delete existing subject - DELETE `/api/v1/subject/delete/:subjectId`](./APIv1%20Endpoints/Subject.md#delete-apiv1subjectdeletesubjectid)
+    - [Get data of subject - GET `/api/v1/subject/get/:subjectId`](./APIv1%20Endpoints/Subject.md#get-apiv1subjectgetsubjectid)

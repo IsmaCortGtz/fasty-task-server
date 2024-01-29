@@ -1,6 +1,6 @@
 # API v1 - Endpoints
 
-The are all the endpoints for the APIv1.
+The are all the endpoints for the APIv1. You can go back [here](../README.md).
 
 ### Table of content
 
@@ -21,3 +21,9 @@ The are all the endpoints for the APIv1.
   - [Get tasks ID of a course - GET `/api/v1/course/tasks/:classcode`](./Course.md#get-apiv1coursetasksclasscode)
   - [Get schedule ID of a course - GET `/api/v1/course/schedule/:classcode`](./Course.md#get-apiv1coursescheduleclasscode)
   - [Get subjects ID of a course - GET `/api/v1/course/subjects/:classcode`](./Course.md#get-apiv1coursesubjectsclasscode)
+
+- [**Subject**](./Subject.md)
+  - [Create new subject - POST `/api/v1/subject/new`](./Subject.md#post-apiv1subjectnew)
+  - [Update data of subject - POST `/api/v1/subject/update`](./Subject.md#post-apiv1subjectupdate)
+  - [Delete existing subject - DELETE `/api/v1/subject/delete/:subjectId`](./Subject.md#delete-apiv1subjectdeletesubjectid)
+  - [Get data of subject - GET `/api/v1/subject/get/:subjectId`](./Subject.md#get-apiv1subjectgetsubjectid)
