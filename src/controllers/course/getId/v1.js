@@ -16,7 +16,7 @@ export function courseGetIdV1 (atribute) {
 
     // Get data of the course
     const data = atribute === 'tasks' ? course.tasks : (atribute === 'schedule' ? course.schedule : (atribute === 'subjects' ? course.subjects : undefined));
-    if (data === undefined) return res.send(204).end();
+    if (data === undefined) return res.sendStatus(204);
     return res.json(data);
   };
 }
