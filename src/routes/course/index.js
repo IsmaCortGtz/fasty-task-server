@@ -10,7 +10,7 @@ import course from '../../controllers/course/index.js';
 // Define router
 const courseRouter = Router({ mergeParams: true });
 
-// User routes
+// Course routes
 courseRouter.post('/new', versionHandler(1), checkJWT, passwordCheck, classcodeCheck, course.new.v1);
 courseRouter.delete('/delete/:classcode', versionHandler(1), checkJWT, course.delete.v1);
 courseRouter.post('/passwordchange', versionHandler(1), checkJWT, course.passwordChange.v1);

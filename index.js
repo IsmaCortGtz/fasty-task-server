@@ -3,12 +3,13 @@ import dotenv from 'dotenv';
 
 // Dependencies
 import express from 'express';
-import { connectDB } from './src/utils/mongoose.js';
+import { connectDB, countUsers } from './src/utils/mongoose.js';
 import { errorHandler, handler404 } from './src/middlewares/errorHandler.js';
 
 // Importing routers
 import userRouter from './src/routes/user/index.js';
 import courseRouter from './src/routes/course/index.js';
+import subjectRouter from './src/routes/subject/index.js';
 
 // Constants
 dotenv.config();
@@ -20,11 +21,16 @@ connectDB(); // Start mongoose
 app.use(express.json());
 
 // Endpoit to avoid free hostings to sleep (you need to send a request here)
-app.get('/api/awake', (req, res) => res.send('I am awake'));
+app.get('/api/awake', (req, res) => res.sendStatus(200));
+app.get('/api/awake/db', async (req, res) => {
+  const users = await countUsers();
+  res.json({ users });
+});
 
 // Routes
 app.use('/api/:version/user', userRouter);
 app.use('/api/:version/course', courseRouter);
+app.use('/api/:version/subject', subjectRouter);
 
 // Error handler
 app.use(handler404);

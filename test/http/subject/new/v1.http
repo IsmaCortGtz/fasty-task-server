@@ -1,0 +1,11 @@
+POST http://localhost:5050/api/v1/subject/new
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+  "course": "65b7b24e95a902861f43eb1d",
+  "teacher": "Jonh Doe",
+  "subjectName": "Software Development I",
+  "teacherEmail": "jonh.doe@fakemail.com",
+  "links": ["https://test.com", "http://example.com", "ftp://yes.youcandoit.com"]
+}
