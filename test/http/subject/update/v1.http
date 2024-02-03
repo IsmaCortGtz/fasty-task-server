@@ -1,0 +1,9 @@
+POST http://localhost:5050/api/v1/subject/update
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+  "subjectId": "65bd77b602a79483cee64015",
+  "teacher": "Jonh Doe 2",
+  "links": ["https://test.com"]
+}

@@ -11,6 +11,8 @@ const subjectRouter = Router({ mergeParams: true });
 
 // Subject routes
 subjectRouter.post('/new', versionHandler(1), checkJWT, subject.new.v1);
+subjectRouter.post('/update', versionHandler(1), checkJWT, subject.update.v1);
 subjectRouter.delete('/delete/:subjectId', versionHandler(1), checkJWT, subject.delete.v1);
+subjectRouter.get('/get/:subjectId', versionHandler(1), checkJWT, subject.get.v1);
 
 export default subjectRouter;

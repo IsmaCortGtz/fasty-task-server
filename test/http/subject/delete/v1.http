@@ -1,2 +1,2 @@
-DELETE http://localhost:5050/api/v1/subject/delete/65b849b81822effe14415cc7
+DELETE http://localhost:5050/api/v1/subject/delete/SUBJECTDEVTESTID
 Authorization: Bearer token
