@@ -1,29 +1,29 @@
-# API v1 - Task Endpoints
+# API v1 - Session Endpoints
 
-The are all the tasks endpoints for the APIv1. You can go back [here](./README.md).
+These are all the session endpoints for the APIv1. You can go back [here](./README.md).
 
 ### Table of content
 
-- **Task**
-  - [Create a new task - POST `/api/v1/task/new`](#post-apiv1tasknew)
-  - [Update data of task - POST `/api/v1/task/update`](#post-apiv1taskupdate)
-  - [Delete existing task - DELETE `/api/v1/task/delete/:taskId`](#delete-apiv1taskdeletetaskid)
-  - [Get data of task - GET `/api/v1/task/get/:taskId`](#get-apiv1taskgettaskid)
+- **Session**
+  - [Create a new session - POST `/api/v1/session/new`](#post-apiv1sessionnew)
+  - [Update data of session - POST `/api/v1/session/update`](#post-apiv1sessionupdate)
+  - [Delete existing session - DELETE `/api/v1/session/delete/:sessionId`](#delete-apiv1sessiondeletesessionid)
+  - [Get data of session - GET `/api/v1/task/session/:sessionId`](#get-apiv1sessiongetsessionid)
 
 
 
-## POST `/api/v1/task/new`
+## POST `/api/v1/session/new`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Create a new task. <i>(Authenticated user needed)</i></td>
+    <td> Create a new session. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/task/new </td>
+    <td> /api/v1/session/new </td>
   </tr>
 
   <tr>
@@ -41,17 +41,17 @@ The are all the tasks endpoints for the APIv1. You can go back [here](./README.m
 
   <tr>
     <td><b> Request <br> Body </b></td>
-<td>
+    <td>
+    <b>Summary: </b> The following fields are needed. <code>starts</code> and <code>ends</code> fields are Date data type, but you should only focus on the Time (hours, minutes and seconds), the other (date) should be ignored. <br>
 
 ```JS
 {
- "subject": subjectId, //send it as string
- "course": courseId, //send it as string
- "deadline": Date,
- "openDate": Date,
- "taskName": String,
- "taskDescription": String,
- "links": [String]  // Optional
+ "subject": subjectId, // send as string
+ "course": courseId, // send as string
+ "starts": Date,
+ "ends": Date,
+ "classroom": String,
+ "links": [String] // Optional
 }
 ```    
 </td>
@@ -61,7 +61,7 @@ The are all the tasks endpoints for the APIv1. You can go back [here](./README.m
     <td><b> Response <br> on success </b></td>
     <td>
       <b>Code:</b> 201 Created <br> 
-      <b>Summary:</b> The ObjectId of the created task as plain text (without json).<br>
+      <b>Summary:</b> The ObjectId of the created session as plain text (without json).<br>
       <b>Content:</b> <code>&lt;taskId&gt;</code>
     </td>
   </tr>
@@ -114,39 +114,38 @@ The are all the tasks endpoints for the APIv1. You can go back [here](./README.m
 // Request data
 const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
 const requestBody = {
- "subject": "devsubjectid632r894320", //send it as string
- "course": "devcourseid632r894320", //send it as string
- "deadline": new Date(),
- "openDate": new Date(),
- "taskName": "Writing Quiz",
- "taskDescription": "Do a litle history about your life",
- "links": ["https://www.youtube.com"]  // Optional
+ "subject": "devsubjectid632r894320", // send as string
+ "course": "devcourseid632r894320", // send as string
+ "starts": new Date(),
+ "ends": new Date(),
+ "classroom": "5-04",
+ "links": ["https://www.youtube.com"] // Optional
 };
 
 // JS Fetch
-const response = await fetch("/api/v1/task/new", {
+const response = await fetch("/api/v1/session/new", {
   method: "POST", headers, 
   body: JSON.stringify(requestBody)
 });
 
 // JS Axios
-const response = await axios.post("/api/v1/task/new", requestBody, { headers });
+const response = await axios.post("/api/v1/session/new", requestBody, { headers });
 ```
 
 
 
-## POST `/api/v1/task/update`
+## POST `/api/v1/session/update`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Update data of task. <i>(Authenticated user needed)</i></td>
+    <td> Update data of session. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/task/update </td>
+    <td> /api/v1/session/update </td>
   </tr>
 
   <tr>
@@ -165,16 +164,15 @@ const response = await axios.post("/api/v1/task/new", requestBody, { headers });
   <tr>
     <td><b> Request <br> Body </b></td>
 <td>
-      <b>Summary:</b> The data that you send here will overwrite the existing one in the task, the only one that isn't optional is the <code>taskId</code> field.<br>
+      <b>Summary:</b> The data that you send here will overwrite the existing one in the session, the only one that isn't optional is the <code>sessionId</code> field.<br>
 
 ```JS
 {
- "taskId": taskId, //send it as string
- "deadline": Date,
- "openDate": Date,
- "taskName": String,
- "taskDescription": String,
- "links": [String]  // Optional
+ "sessionId": sessionId, //send it as string
+ "starts": Date,
+ "ends": Date,
+ "classroom": String,
+ "links": [String] // Optional
 }
 ```    
 </td>
@@ -192,7 +190,7 @@ const response = await axios.post("/api/v1/task/new", requestBody, { headers });
     <td>
       <b>Code:</b> 409 Conflict <br>
       <b>Summary:</b> You don't have admin access to this course, or the task doesn't exists. <br>
-      <b>Content:</b> <code>{ "error": "taskId invalid, check your access to the course." }</code>
+      <b>Content:</b> <code>{ "error": "sessionId invalid, check your access to the course." }</code>
     </td>
   </tr>
 
@@ -235,35 +233,35 @@ const response = await axios.post("/api/v1/task/new", requestBody, { headers });
 // Request data
 const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
 const requestBody = {
-  "taskId": "devtaskid632r894320", //send it as string
-  "taskName": "Final Exam",
-  "links": ["https://test.com"] // The subject now only has 1 link, the other ones was overwrited
+  "sessionId": "devsessionid632r894320", //send it as string
+  "starts": new Date(),
+  "links": ["https://test.com", "https://www.google.com"] // The subject now has 2 link, the other ones was overwrited
 };
 
 // JS Fetch
-const response = await fetch("/api/v1/task/update", {
+const response = await fetch("/api/v1/session/update", {
   method: "POST", headers, 
   body: JSON.stringify(requestBody)
 });
 
 // JS Axios
-const response = await axios.post("/api/v1/task/update", requestBody, { headers });
+const response = await axios.post("/api/v1/session/update", requestBody, { headers });
 ```
 
 
 
-## DELETE `/api/v1/task/delete/:taskId`
+## DELETE `/api/v1/session/delete/:sessionId`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Delete a task. <i>(Authenticated user needed)</i></td>
+    <td> Delete a session. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/task/delete/:taskId </td>
+    <td> /api/v1/task/session/:sessionId </td>
   </tr>
 
   <tr>
@@ -288,7 +286,7 @@ const response = await axios.post("/api/v1/task/update", requestBody, { headers 
     <td>
       <b>Code:</b> 409 Conflict <br>
       <b>Summary:</b> You don't have admin access to this course, or the task doesn't exists. <br>
-      <b>Content:</b> <code>{ "error": "taskId invalid, check your access to the course." }</code>
+      <b>Content:</b> <code>{ "error": "sessionId invalid, check your access to the course." }</code>
     </td>
   </tr>
 
@@ -326,26 +324,26 @@ const response = await axios.post("/api/v1/task/update", requestBody, { headers 
 const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
-const response = await fetch(`/api/v1/task/delete/${taskId}`, { method: "DELETE", headers });
+const response = await fetch(`/api/v1/session/delete/${sessionId}`, { method: "DELETE", headers });
 
 // JS Axios
-const response = await axios.delete(`/api/v1/task/delete/${taskId}`, { headers });
+const response = await axios.delete(`/api/v1/session/delete/${sessionId}`, { headers });
 ```
 
 
 
-## GET `/api/v1/task/get/:taskId`
+## GET `/api/v1/session/get/:sessionId`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Get data of task. <i>(Authenticated user needed)</i></td>
+    <td> Get data of session. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/task/get/:taskId </td>
+    <td> /api/v1/session/get/:sessionId </td>
   </tr>
 
   <tr>
@@ -368,10 +366,9 @@ const response = await axios.delete(`/api/v1/task/delete/${taskId}`, { headers }
  "_id": ObjectID, // Assigned by MongoDB
  "subject": ObjectID,
  "course": ObjectID,
- "deadline": Date,
- "openDate": Date,
- "taskName": String,
- "taskDescription": String,
+ "starts": Date,
+ "ends": Date,
+ "classroom": String,
  "links": [String]
 }
 ```    
@@ -384,7 +381,7 @@ const response = await axios.delete(`/api/v1/task/delete/${taskId}`, { headers }
     <td>
       <b>Code:</b> 409 Conflict <br>
       <b>Summary:</b> You don't have access to this course, or the task doesn't exists. <br>
-      <b>Content:</b> <code>{ "error": "taskId invalid, check your access to the course." }</code>
+      <b>Content:</b> <code>{ "error": "sessionId invalid, check your access to the course." }</code>
     </td>
   </tr>
 
@@ -422,8 +419,8 @@ const response = await axios.delete(`/api/v1/task/delete/${taskId}`, { headers }
 const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
-const response = await fetch(`/api/v1/task/get/${taskId}`, { headers });
+const response = await fetch(`/api/v1/session/get/${sessionId}`, { headers });
 
 // JS Axios
-const response = await axios.post(`/api/v1/task/get/${taskId}`, { headers });
+const response = await axios.post(`/api/v1/session/get/${sessionId}`, { headers });
 ```

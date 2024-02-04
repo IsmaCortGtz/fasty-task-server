@@ -43,3 +43,8 @@ You can see the full documentation of the project. Check the table below.
     - [Update data of task - POST `/api/v1/task/update`](./APIv1%20Endpoints/Task.md#post-apiv1taskupdate)
     - [Delete existing task - DELETE `/api/v1/task/delete/:taskId`](./APIv1%20Endpoints/Task.md#delete-apiv1taskdeletetaskid)
     - [Get data of task - GET `/api/v1/task/get/:taskId`](./APIv1%20Endpoints/Task.md#get-apiv1taskgettaskid)
+  - [**Session**](./APIv1%20Endpoints/Session.md)
+    - [Create a new session - POST `/api/v1/session/new`](./APIv1%20Endpoints/Session.md#post-apiv1sessionnew)
+    - [Update data of session - POST `/api/v1/session/update`](./APIv1%20Endpoints/Session.md#post-apiv1sessionupdate)
+    - [Delete existing session - DELETE `/api/v1/session/delete/:sessionId`](./APIv1%20Endpoints/Session.md#delete-apiv1sessiondeletesessionid)
+    - [Get data of session - GET `/api/v1/task/session/:sessionId`](./APIv1%20Endpoints/Session.md#get-apiv1sessiongetsessionid)

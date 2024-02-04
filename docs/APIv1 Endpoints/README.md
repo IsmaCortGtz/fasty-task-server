@@ -33,3 +33,9 @@ The are all the endpoints for the APIv1. You can go back [here](../README.md).
   - [Update data of task - POST `/api/v1/task/update`](./Task.md#post-apiv1taskupdate)
   - [Delete existing task - DELETE `/api/v1/task/delete/:taskId`](./Task.md#delete-apiv1taskdeletetaskid)
   - [Get data of task - GET `/api/v1/task/get/:taskId`](./Task.md#get-apiv1taskgettaskid)
+
+- [**Session**](./Session.md)
+  - [Create a new session - POST `/api/v1/session/new`](./Session.md#post-apiv1sessionnew)
+  - [Update data of session - POST `/api/v1/session/update`](./Session.md#post-apiv1sessionupdate)
+  - [Delete existing session - DELETE `/api/v1/session/delete/:sessionId`](./Session.md#delete-apiv1sessiondeletesessionid)
+  - [Get data of session - GET `/api/v1/task/session/:sessionId`](./Session.md#get-apiv1sessiongetsessionid)
