@@ -10,7 +10,6 @@ The are all the DB Schemas of this API version. You can go back [here](../README
   - [Course](#db-schema-course)
   - [Subject](#db-schema-subject)
   - [Task](#db-schema-task)
-  - [Schedule](#db-schema-schedule)
   - [Session](#db-schema-session)
 
 
@@ -57,7 +56,6 @@ You can see a the logical schema of the DB in the image below.
  "_id": ObjectID, // Assigned by MongoDB
  "classcode": String,
  "password": String,
- "shcedule": ObjectID,
  "subjects": [ObjectID],
  "tasks": [ObjectID],
  "sessions": [ObjectID]
@@ -97,30 +95,6 @@ You can see a the logical schema of the DB in the image below.
  "taskName": String,
  "taskDescription": String,
  "links": [String]
-}
-```
-
-
-
-## DB Schema: `Schedule`
-
-### Important
-
-- The `startTime` and `endTime` fields only needs the time value, the day part of the date will be ignored.
-
-### Struct
-
-```javascript
-{
-  "_id": ObjectID, // Assigned by MongoDB
-  "course": ObjectID,
-  "monday": [ObjectID],  // Session Id
-  "tuesday": [ObjectID],
-  "wednesday": [ObjectID],
-  "thursday": [ObjectID],
-  "friday": [ObjectID],
-  "saturday": [ObjectID],
-  "sunday": [ObjectID]
 }
 ```
 

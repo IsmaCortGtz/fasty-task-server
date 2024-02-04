@@ -15,7 +15,7 @@ export function courseGetIdV1 (atribute) {
     if (!user.adminCourses.includes(course._id) && !user.courses.includes(course._id)) return next(new AccessDenied('you do not have access to this course'));
 
     // Get data of the course
-    const data = atribute === 'tasks' ? course.tasks : (atribute === 'schedule' ? course.schedule : (atribute === 'subjects' ? course.subjects : undefined));
+    const data = atribute === 'tasks' ? course.tasks : (atribute === 'sessions' ? course.sessions : (atribute === 'subjects' ? course.subjects : undefined));
     if (data === undefined) return res.sendStatus(204);
     return res.json(data);
   };

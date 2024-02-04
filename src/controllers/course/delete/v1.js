@@ -4,7 +4,6 @@ import { Course } from '../../../models/Course/v1.js';
 import { Task } from '../../../models/Task/v1.js';
 import { Subject } from '../../../models/Subject/v1.js';
 import { Session } from '../../../models/Session/v1.js';
-import { Schedule } from '../../../models/Schedule/v1.js';
 import { ParamsNeeded, AccessDenied } from '../../../middlewares/errors.js';
 
 // Delete all documents from ID
@@ -40,15 +39,13 @@ export async function courseDeleteV1 (req, res, next) {
     course: 0,
     tasks: 0,
     subjects: 0,
-    sessions: 0,
-    schedule: 0
+    sessions: 0
   };
 
   // Delete all tasks
   subDocumentsDeleted.tasks = await deleteNestedDocuments(Task, course.tasks);
   subDocumentsDeleted.subjects = await deleteNestedDocuments(Subject, course.subjects);
   subDocumentsDeleted.sessions = await deleteNestedDocuments(Session, course.sessions);
-  subDocumentsDeleted.schedule = await deleteNestedDocuments(Schedule, course.schedule);
 
   // Revome ID from user account
   const userIndex = user.adminCourses.indexOf(course._id);
