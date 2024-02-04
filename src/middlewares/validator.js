@@ -1,5 +1,5 @@
 export function emailValidator (email) {
-  if (!email) return false;
+  if (typeof email !== 'string') return false;
   // See https://regexr.com/3e48o for the regex explanation
   return /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email);
 }

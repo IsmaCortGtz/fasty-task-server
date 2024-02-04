@@ -1,0 +1,8 @@
+POST http://localhost:5050/api/v1/session/update
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+ "sessionId": "65bef6556dc3f5b967cc1f6c",
+ "links": ["https://www.youtube.com"]
+}
