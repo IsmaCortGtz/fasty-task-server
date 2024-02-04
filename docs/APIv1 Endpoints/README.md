@@ -27,3 +27,9 @@ The are all the endpoints for the APIv1. You can go back [here](../README.md).
   - [Update data of subject - POST `/api/v1/subject/update`](./Subject.md#post-apiv1subjectupdate)
   - [Delete existing subject - DELETE `/api/v1/subject/delete/:subjectId`](./Subject.md#delete-apiv1subjectdeletesubjectid)
   - [Get data of subject - GET `/api/v1/subject/get/:subjectId`](./Subject.md#get-apiv1subjectgetsubjectid)
+
+- [**Task**](./Task.md)
+  - [Create a new task - POST `/api/v1/task/new`](./Task.md#post-apiv1tasknew)
+  - [Update data of task - POST `/api/v1/task/update`](./Task.md#post-apiv1taskupdate)
+  - [Delete existing task - DELETE `/api/v1/task/delete/:taskId`](./Task.md#delete-apiv1taskdeletetaskid)
+  - [Get data of task - GET `/api/v1/task/get/:taskId`](./Task.md#get-apiv1taskgettaskid)

@@ -38,3 +38,8 @@ You can see the full documentation of the project. Check the table below.
     - [Update data of subject - POST `/api/v1/subject/update`](./APIv1%20Endpoints/Subject.md#post-apiv1subjectupdate)
     - [Delete existing subject - DELETE `/api/v1/subject/delete/:subjectId`](./APIv1%20Endpoints/Subject.md#delete-apiv1subjectdeletesubjectid)
     - [Get data of subject - GET `/api/v1/subject/get/:subjectId`](./APIv1%20Endpoints/Subject.md#get-apiv1subjectgetsubjectid)
+  - [**Task**](./APIv1%20Endpoints/Task.md)
+    - [Create a new task - POST `/api/v1/task/new`](./APIv1%20Endpoints/Task.md#post-apiv1tasknew)
+    - [Update data of task - POST `/api/v1/task/update`](./APIv1%20Endpoints/Task.md#post-apiv1taskupdate)
+    - [Delete existing task - DELETE `/api/v1/task/delete/:taskId`](./APIv1%20Endpoints/Task.md#delete-apiv1taskdeletetaskid)
+    - [Get data of task - GET `/api/v1/task/get/:taskId`](./APIv1%20Endpoints/Task.md#get-apiv1taskgettaskid)

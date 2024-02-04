@@ -1,29 +1,29 @@
-# API v1 - Subject Endpoints
+# API v1 - Task Endpoints
 
-The are all the subject endpoints for the APIv1. You can go back [here](./README.md).
+The are all the tasks endpoints for the APIv1. You can go back [here](./README.md).
 
 ### Table of content
 
-- **Subject**
-  - [Create new subject - POST `/api/v1/subject/new`](#post-apiv1subjectnew)
-  - [Update data of subject - POST `/api/v1/subject/update`](#post-apiv1subjectupdate)
-  - [Delete existing subject - DELETE `/api/v1/subject/delete/:subjectId`](#delete-apiv1subjectdeletesubjectid)
-  - [Get data of subject - GET `/api/v1/subject/get/:subjectId`](#get-apiv1subjectgetsubjectid)
+- **Task**
+  - [Create a new task - POST `/api/v1/task/new`](#post-apiv1tasknew)
+  - [Update data of task - POST `/api/v1/task/update`](#post-apiv1taskupdate)
+  - [Delete existing task - DELETE `/api/v1/task/delete/:taskId`](#delete-apiv1taskdeletetaskid)
+  - [Get data of task - GET `/api/v1/task/get/:taskId`](#get-apiv1taskgettaskid)
 
 
 
-## POST `/api/v1/subject/new`
+## POST `/api/v1/task/new`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Create a new subject. <i>(Authenticated user needed)</i></td>
+    <td> Create a new task. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/subject/new </td>
+    <td> /api/v1/task/new </td>
   </tr>
 
   <tr>
@@ -45,11 +45,13 @@ The are all the subject endpoints for the APIv1. You can go back [here](./README
 
 ```JS
 {
-  "course": courseId, //send it as string
-  "teacher": String,
-  "subjectName": String,
-  "teacherEmail": String,
-  "links": [String] // Optional
+ "subject": subjectId, //send it as string
+ "course": courseId, //send it as string
+ "deadline": Date,
+ "openDate": Date,
+ "taskName": String,
+ "taskDescription": String,
+ "links": [String]  // Optional
 }
 ```    
 </td>
@@ -59,8 +61,8 @@ The are all the subject endpoints for the APIv1. You can go back [here](./README
     <td><b> Response <br> on success </b></td>
     <td>
       <b>Code:</b> 201 Created <br> 
-      <b>Summary:</b> The ObjectId of the created subject as plain text (without json).<br>
-      <b>Content:</b> <code>&lt;subjectId&gt;</code>
+      <b>Summary:</b> The ObjectId of the created task as plain text (without json).<br>
+      <b>Content:</b> <code>&lt;taskId&gt;</code>
     </td>
   </tr>
 
@@ -112,37 +114,39 @@ The are all the subject endpoints for the APIv1. You can go back [here](./README
 // Request data
 const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
 const requestBody = {
-  "course": "devcourseid632r894320", //send it as string
-  "teacher": "Jonh Doe",
-  "subjectName": "Software Development I",
-  "teacherEmail": "jonh.doe@fakemail.com",
-  "links": ["https://test.com", "http://example.com", "ftp://yes.youcandoit.com"] // Optional
+ "subject": "devsubjectid632r894320", //send it as string
+ "course": "devcourseid632r894320", //send it as string
+ "deadline": new Date(),
+ "openDate": new Date(),
+ "taskName": "Writing Quiz",
+ "taskDescription": "Do a litle history about your life",
+ "links": ["https://www.youtube.com"]  // Optional
 };
 
 // JS Fetch
-const response = await fetch("/api/v1/subject/new", {
+const response = await fetch("/api/v1/task/new", {
   method: "POST", headers, 
   body: JSON.stringify(requestBody)
 });
 
 // JS Axios
-const response = await axios.post("/api/v1/subject/new", requestBody, { headers });
+const response = await axios.post("/api/v1/task/new", requestBody, { headers });
 ```
 
 
 
-## POST `/api/v1/subject/update`
+## POST `/api/v1/task/update`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Update data of subject. <i>(Authenticated user needed)</i></td>
+    <td> Update data of task. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/subject/update </td>
+    <td> /api/v1/task/update </td>
   </tr>
 
   <tr>
@@ -161,15 +165,16 @@ const response = await axios.post("/api/v1/subject/new", requestBody, { headers 
   <tr>
     <td><b> Request <br> Body </b></td>
 <td>
-      <b>Summary:</b> The data that you send here will overwrite the existing one in the subject, the only one that isn't optional is the <code>subjectId</code> field.<br>
+      <b>Summary:</b> The data that you send here will overwrite the existing one in the task, the only one that isn't optional is the <code>taskId</code> field.<br>
 
 ```JS
 {
-  "subjectId": subjectId // _id of task, send it as String
-  "teacher": String,
-  "subjectName": String,
-  "teacherEmail": String,
-  "links": [String] // This will overwrite the existing array
+ "taskId": taskId, //send it as string
+ "deadline": Date,
+ "openDate": Date,
+ "taskName": String,
+ "taskDescription": String,
+ "links": [String]  // Optional
 }
 ```    
 </td>
@@ -178,8 +183,7 @@ const response = await axios.post("/api/v1/subject/new", requestBody, { headers 
   <tr>
     <td><b> Response <br> on success </b></td>
     <td>
-      <b>Code:</b> 204 No Content <br><!-- 
-      <b>Content:</b> <code>{ "username": &lt;username&gt;, token: &lt;jwt&gt; }</code> -->
+      <b>Code:</b> 204 No Content <br>
     </td>
   </tr>
 
@@ -187,8 +191,8 @@ const response = await axios.post("/api/v1/subject/new", requestBody, { headers 
     <td rowspan="4"><b> Response <br> on error </b></td>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> You don't have admin access to this course, or the subject doesn't exists. <br>
-      <b>Content:</b> <code>{ "error": "subjectId invalid, check your access to the course." }</code>
+      <b>Summary:</b> You don't have admin access to this course, or the task doesn't exists. <br>
+      <b>Content:</b> <code>{ "error": "taskId invalid, check your access to the course." }</code>
     </td>
   </tr>
 
@@ -231,35 +235,35 @@ const response = await axios.post("/api/v1/subject/new", requestBody, { headers 
 // Request data
 const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${JWT_TOKEN}` };
 const requestBody = {
-  "subjectId": "devcourseid632r894320", //send it as string
-  "teacherEmail": "jonh.doe@fakemail.com",
+  "taskId": "devtaskid632r894320", //send it as string
+  "taskName": "Final Exam",
   "links": ["https://test.com"] // The subject now only has 1 link, the other ones was overwrited
 };
 
 // JS Fetch
-const response = await fetch("/api/v1/subject/update", {
+const response = await fetch("/api/v1/task/update", {
   method: "POST", headers, 
   body: JSON.stringify(requestBody)
 });
 
 // JS Axios
-const response = await axios.post("/api/v1/subject/update", requestBody, { headers });
+const response = await axios.post("/api/v1/task/update", requestBody, { headers });
 ```
 
 
 
-## DELETE `/api/v1/subject/delete/:subjectId`
+## DELETE `/api/v1/task/delete/:taskId`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Delete a subject. <i>(Authenticated user needed)</i></td>
+    <td> Delete a task. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/subject/delete/:subjectId </td>
+    <td> /api/v1/task/delete/:taskId </td>
   </tr>
 
   <tr>
@@ -283,8 +287,8 @@ const response = await axios.post("/api/v1/subject/update", requestBody, { heade
     <td rowspan="3"><b> Response <br> on error </b></td>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> You don't have admin access to this course, or the subject doesn't exists. <br>
-      <b>Content:</b> <code>{ "error": "subjectId invalid, check your access to the course." }</code>
+      <b>Summary:</b> You don't have admin access to this course, or the task doesn't exists. <br>
+      <b>Content:</b> <code>{ "error": "taskId invalid, check your access to the course." }</code>
     </td>
   </tr>
 
@@ -322,26 +326,26 @@ const response = await axios.post("/api/v1/subject/update", requestBody, { heade
 const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
-const response = await fetch(`/api/v1/subject/delete/${subjectId}`, { method: "DELETE", headers });
+const response = await fetch(`/api/v1/task/delete/${taskId}`, { method: "DELETE", headers });
 
 // JS Axios
-const response = await axios.delete(`/api/v1/subject/delete/${subjectId}`, { headers });
+const response = await axios.delete(`/api/v1/task/delete/${taskId}`, { headers });
 ```
 
 
 
-## GET `/api/v1/subject/get/:subjectId`
+## GET `/api/v1/task/get/:taskId`
 
 <table><thead></thead>
 
   <tr>
     <td><b> Summary </b></td>
-    <td> Get data of subject. <i>(Authenticated user needed)</i></td>
+    <td> Get data of task. <i>(Authenticated user needed)</i></td>
   </tr>
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/subject/get/:subjectId </td>
+    <td> /api/v1/task/get/:taskId </td>
   </tr>
 
   <tr>
@@ -361,12 +365,14 @@ const response = await axios.delete(`/api/v1/subject/delete/${subjectId}`, { hea
 
 ```JS
 {
-  "_id": subjectId, // String
-  "course": courseId, // String
-  "teacher": String,
-  "subjectName": String,
-  "teacherEmail": String,
-  "links": [String] // Optional
+ "_id": ObjectID, // Assigned by MongoDB
+ "subject": ObjectID,
+ "course": ObjectID,
+ "deadline": Date,
+ "openDate": Date,
+ "taskName": String,
+ "taskDescription": String,
+ "links": [String]
 }
 ```    
       
@@ -377,8 +383,8 @@ const response = await axios.delete(`/api/v1/subject/delete/${subjectId}`, { hea
     <td rowspan="3"><b> Response <br> on error </b></td>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> You don't have access to this course, or the subject doesn't exists. <br>
-      <b>Content:</b> <code>{ "error": "subjectId invalid, check your access to the course." }</code>
+      <b>Summary:</b> You don't have access to this course, or the task doesn't exists. <br>
+      <b>Content:</b> <code>{ "error": "taskId invalid, check your access to the course." }</code>
     </td>
   </tr>
 
@@ -416,8 +422,8 @@ const response = await axios.delete(`/api/v1/subject/delete/${subjectId}`, { hea
 const headers = { "Authorization": `Bearer ${JWT_TOKEN}` };
 
 // JS Fetch
-const response = await fetch(`/api/v1/subject/get/${subjectId}`, { headers });
+const response = await fetch(`/api/v1/task/get/${subjectId}`, { headers });
 
 // JS Axios
-const response = await axios.post(`/api/v1/subject/get/${subjectId}`, { headers });
+const response = await axios.post(`/api/v1/task/get/${subjectId}`, { headers });
 ```
