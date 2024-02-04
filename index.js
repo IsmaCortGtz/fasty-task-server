@@ -23,8 +23,8 @@ connectDB(); // Start mongoose
 app.use(express.json());
 
 // Endpoit to avoid free hostings to sleep (you need to send a request here)
-app.get('/api/awake', (req, res) => res.sendStatus(200));
-app.get('/api/awake/db', async (req, res) => {
+app.get('/api/verify', (req, res) => res.send('fasty-task-server'));
+app.get('/api/verify/db', async (req, res) => {
   const users = await countUsers();
   res.json({ users });
 });
