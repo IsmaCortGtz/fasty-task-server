@@ -14,7 +14,7 @@
 The backend for `fasty-task`, an app to manage your scholar life. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars and use a compatible client _(see my [official web one](https://github.com/IsmaCortGtz/fasty-task-react))_.
 
 > [!CAUTION]
-> The current version isn't stable and doesn't have implemented the full features documented yet.
+> The current version is in dev and can break some features.
 
 
 ### Table of Content

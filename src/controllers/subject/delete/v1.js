@@ -2,6 +2,8 @@
 import { User } from '../../../models/User/v1.js';
 import { Course } from '../../../models/Course/v1.js';
 import { Subject } from '../../../models/Subject/v1.js';
+import { Task } from '../../../models/Task/v1.js';
+import { Session } from '../../../models/Session/v1.js';
 import { ParamsNeeded, AccessDenied, UnknowError } from '../../../middlewares/errors.js';
 import { objectIdValidator } from '../../../middlewares/validator.js';
 
@@ -27,6 +29,16 @@ export async function subjectDeleteV1 (req, res, next) {
       course.subjects.splice(subjectIndex, 1);
       await course.save();
     }
+  }
+
+  // Delete all sessions from subject
+  for await (const session of Session.find({ subject: subject._id })) {
+    await Session.findByIdAndDelete(session._id);
+  }
+
+  // Delete all tasks from subject
+  for await (const task of Task.find({ subject: subject._id })) {
+    await Task.findByIdAndDelete(task._id);
   }
 
   // Delete subject
