@@ -11,5 +11,6 @@ const taskRouter = Router({ mergeParams: true });
 
 // Subject routes
 taskRouter.post('/new', versionHandler(1), checkJWT, task.new.v1);
+taskRouter.post('/update', versionHandler(1), checkJWT, task.update.v1);
 
 export default taskRouter;

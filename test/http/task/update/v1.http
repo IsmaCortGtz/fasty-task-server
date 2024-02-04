@@ -1,0 +1,9 @@
+POST http://localhost:5050/api/v1/task/update
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+ "taskId": "65bedd4f6a2e52fed40086fe",
+ "taskName": "Tarea #2",
+ "links": ["https://www.youtube.com"]
+}
