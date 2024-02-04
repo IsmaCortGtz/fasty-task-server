@@ -22,7 +22,7 @@ export async function subjectNewV1 (req, res, next) {
   if (typeof teacher !== 'string') return next(new ParamsNeeded('teacher invalid'));
   if (typeof subjectName !== 'string') return next(new ParamsNeeded('subjectName invalid'));
   if (typeof teacherEmail !== 'string') return next(new ParamsNeeded('teacherEmail invalid'));
-  if (!Array.isArray(links)) return next(new ParamsNeeded('links invalid'));
+  if (links !== undefined && !Array.isArray(links)) return next(new ParamsNeeded('links invalid'));
 
   // validate email
   if (!emailValidator(teacherEmail)) return next(new ParamsNeeded('teacherEmail invalid'));

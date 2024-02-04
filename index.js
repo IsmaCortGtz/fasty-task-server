@@ -10,6 +10,7 @@ import { errorHandler, handler404 } from './src/middlewares/errorHandler.js';
 import userRouter from './src/routes/user/index.js';
 import courseRouter from './src/routes/course/index.js';
 import subjectRouter from './src/routes/subject/index.js';
+import taskRouter from './src/routes/task/index.js';
 
 // Constants
 dotenv.config();
@@ -31,6 +32,7 @@ app.get('/api/awake/db', async (req, res) => {
 app.use('/api/:version/user', userRouter);
 app.use('/api/:version/course', courseRouter);
 app.use('/api/:version/subject', subjectRouter);
+app.use('/api/:version/task', taskRouter);
 
 // Error handler
 app.use(handler404);

@@ -1,0 +1,12 @@
+POST http://localhost:5050/api/v1/task/new
+Content-Type: application/json
+Authorization: Bearer token
+
+{
+ "subject": "65bd77b602a79483cee64015",
+ "course": "65b7b24e95a902861f43eb1d",
+ "deadline": "2024-02-04T00:39:16.291Z",
+ "openDate": "2024-02-04T00:39:16.291Z",
+ "taskName": "Tarea #1",
+ "taskDescription": "Elaborar una mandala color naranja con un diametro de 20cm"
+}
