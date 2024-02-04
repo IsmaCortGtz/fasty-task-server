@@ -58,8 +58,9 @@ The are all the subject endpoints for the APIv1. You can go back [here](./README
   <tr>
     <td><b> Response <br> on success </b></td>
     <td>
-      <b>Code:</b> 201 Created <br><!-- 
-      <b>Content:</b> <code>{ "username": &lt;username&gt;, token: &lt;jwt&gt; }</code> -->
+      <b>Code:</b> 201 Created <br> 
+      <b>Summary:</b> The ObjectId of the created subject as plain text (without json).<br>
+      <b>Content:</b> <code>&lt;subjectId&gt;</code>
     </td>
   </tr>
 

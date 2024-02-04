@@ -49,5 +49,5 @@ export async function subjectNewV1 (req, res, next) {
   await courseDoc.save();
 
   // Send response
-  return res.sendStatus(201);
+  return res.status(201).send(newSubject._id);
 }
