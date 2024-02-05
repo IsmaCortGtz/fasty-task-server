@@ -10,6 +10,7 @@
   - [JWT Expire](#jwt-expire)
   - [MongoDB URI](#mongodb-uri)
   - [Bcrypt Saltround](#bcrypt-saltround)
+  - [Frontend Deploy](#frontend-deploy)
 - [Full Example](#full-example)
 
 
@@ -74,6 +75,22 @@ BCRYPT_SALTROUND=10
 
 
 
+### Frontend Deploy
+
+The `MY_FRONTEND_DEPLOY` var define the URL which frontend are deployed, this is optional. When this env var is defined the server will redirect any request out of `/api` to this page following the url example `backend.com/login?afterAuth=test` -> `frontend.net/login?afterAuth=test`.
+
+If this env var is not defined the server will render the `index.html` file inside `public` folder. Remember that public folder is served as static content under `/`.
+
+And obviously, the server will allow cors for this URL.
+
+#### Example
+
+```env
+MY_FRONTEND_DEPLOY="https://username.github.io/repo/"
+```
+
+
+
 ## Full example
 
 ```env
@@ -82,4 +99,5 @@ JWT_SECRET="hciojsdjcjdkscsnkjnkjdsjlvmlmvkldklckjposdjiwj94ui"
 JWT_EXPIRE=8640000
 MONGODB_URI="mongodb+srv://<user>:....mongodb.net/<dbname>?retryWrites=true&w=majority"
 BCRYPT_SALTROUND=10
+MY_FRONTEND_DEPLOY="https://username.github.io/repo/"
 ```
