@@ -62,10 +62,10 @@ You can see the documentation [here](./docs/README.md).
 
 4. Config `.env` file using this [guide](./docs/Environment%20Vars.md).
 
-5. Start the server
+5. Start the dev server
 
 ```bash
-  npm run start
+  npm run dev
 ```
 
 
