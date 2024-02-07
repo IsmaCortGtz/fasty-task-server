@@ -45,12 +45,13 @@ app.use('/api/:version/session', sessionRouter);
 app.use('/api/*', handler404);
 
 // Handle front-end or static routes
-app.use(express.static('public'));
 app.use((req, res) => {
   // If env var for other frontend is not set, serve the default frontend
-  if (!process.env.MY_FRONTEND_DEPLOY) return res.sendFile(path.resolve('public/index.html'));
-  return res.redirect(combineURL(process.env.MY_FRONTEND_DEPLOY, req.url));
+  const redirectTo = process.env.MY_FRONTEND_DEPLOY_REDIRECT || process.env.MY_FRONTEND_DEPLOY;
+  if (!redirectTo) return res.sendFile(path.resolve('public/index.html'));
+  return res.redirect(combineURL(redirectTo, req.url));
 });
+app.use(express.static('public'));
 
 // Error handler
 app.use(errorHandler);
