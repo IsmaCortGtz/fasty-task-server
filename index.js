@@ -1,5 +1,5 @@
 // Dev dependencies
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
 // Dependencies
 import path from 'path';
@@ -17,7 +17,7 @@ import taskRouter from './src/routes/task/index.js';
 import sessionRouter from './src/routes/session/index.js';
 
 // Constants
-dotenv.config();
+// dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 const corsConfig = { origin: ['http://localhost:5173', process.env.MY_FRONTEND_DEPLOY] };
