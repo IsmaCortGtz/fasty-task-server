@@ -24,7 +24,7 @@ All the passwords in this back-end need to follow the next requirements.
 
 ### Accepted passwords ✅
 
-- `aA34567_` _(You shouldn't use passwords like this, them are very easy)._
+- `aA34567_` _(You shouldn't use passwords like this, they are very easy)._
 - `Is 1T A S3cUre p4$$w0rd?? We1l, M4ybe.`
 - `jdhHJHJDh9(/&%%$%$__987867)`
 - `OMHIHIVSJIOKAKP:XAOEA-opqkfjuyumew&/&%&/()`
@@ -32,9 +32,9 @@ All the passwords in this back-end need to follow the next requirements.
 
 
 
-## Username Requirements 🤖 
+## Username and Classcode Requirements 🤖 
 
-I would like to use this space to show the requirements for usernames.
+I would like to use this space to show the requirements for usernames and classcodes.
 
 - At least a length of 5 characters.
 - Max length of 20 characters.

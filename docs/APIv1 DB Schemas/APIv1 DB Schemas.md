@@ -1,6 +1,6 @@
 # API v1 - DB Schemas
 
-The are all the DB Schemas of this API version. You can go back [here](../README.md).
+There are all of the DB Schemas from this API version. You can go back [here](../README.md).
 
 ### Table of content
 
@@ -37,10 +37,9 @@ You can see a the logical schema of the DB in the image below.
  "_id": ObjectID, // Assigned by MongoDB
  "username": String,
  "password": String,
- "courses": [ObjectID],
- "adminCourses": [ObjectID],
  "tasksCompleted": [ObjectID],
- "config": { <client>: {} }, // Any JSON, the server wont validate a format, you can put anything you need.
+ "courses": [{ "_id": ObjectID, "isAdmin": Boolean }],
+ "config": { <client>: {}, <client>: {}, ... }, // Any JSON, the server wont validate a format, you can put anything you need.
 }
 ```
 
@@ -55,10 +54,7 @@ You can see a the logical schema of the DB in the image below.
 {
  "_id": ObjectID, // Assigned by MongoDB
  "classcode": String,
- "password": String,
- "subjects": [ObjectID],
- "tasks": [ObjectID],
- "sessions": [ObjectID]
+ "password": String
 }
 ```
 
@@ -72,9 +68,9 @@ You can see a the logical schema of the DB in the image below.
 {
  "_id": ObjectID, // Assigned by MongoDB
  "course": ObjectID,
- "teacher": String,
+ "name": String,
+ "teacherName": String,
  "teacherEmail": String,
- "subjectName": String,
  "links": [String]
 }
 ```
@@ -89,11 +85,10 @@ You can see a the logical schema of the DB in the image below.
 {
  "_id": ObjectID, // Assigned by MongoDB
  "subject": ObjectID,
- "course": ObjectID,
- "deadline": Date,
- "openDate": Date,
- "taskName": String,
- "taskDescription": String,
+ "open": Date,
+ "close": Date,
+ "name": String,
+ "description": String,
  "links": [String]
 }
 ```
@@ -112,7 +107,6 @@ You can see a the logical schema of the DB in the image below.
 {
  "_id": ObjectID, // Assigned by MongoDB
  "subject": ObjectID,
- "course": ObjectID,
  "starts": Date,
  "ends": Date,
  "classroom": String,
