@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./fasty-task-server.svg" alt="Fasty-Task Server" width="200">
+  <img src="./public/fasty-task-server.svg" alt="Fasty-Task Server" width="200">
   <br>
   Fasty-Task Server
   <br>
@@ -11,7 +11,7 @@
   <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a>
 </p>
 
-The backend for `fasty-task`, an app to manage your scholar life. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars and use a compatible client _(see my [official web one](https://github.com/IsmaCortGtz/fasty-task-react))_.
+The backend for `fasty-task`, an app to manage your scholar life. This backend only deploys an `API`, you will need to connect it to a `MongoDB` database using environment vars and use a compatible client _(see my [official web one](https://github.com/IsmaCortGtz/))_.
 
 > [!CAUTION]
 > The current version is in dev and can break some features.
