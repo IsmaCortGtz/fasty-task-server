@@ -18,11 +18,11 @@ export function usernameRequirements (username) {
 export function passwordCheck (request, response, next) {
   const { password } = request.body;
   if (!password) {
-    return next(new ParamsNeeded('password needed'));
+    return next(new ParamsNeeded('Password needed'));
   }
 
   if (!meetRequirements(password)) {
-    return next(new ParamsRequirements("password doesn't meet the requirements"));
+    return next(new ParamsRequirements("Password does not meet the requirements"));
   }
 
   return next();
@@ -31,11 +31,11 @@ export function passwordCheck (request, response, next) {
 export function usernameCheck (request, response, next) {
   const { username } = request.body;
   if (!username) {
-    return next(new ParamsNeeded('username needed'));
+    return next(new ParamsNeeded('Username needed'));
   }
 
   if (!usernameRequirements(username)) {
-    return next(new ParamsRequirements("username doesn't meet the requirements"));
+    return next(new ParamsRequirements("Username does not meet the requirements"));
   }
 
   return next();
@@ -44,11 +44,11 @@ export function usernameCheck (request, response, next) {
 export function classcodeCheck (request, response, next) {
   const { classcode } = request.body;
   if (!classcode) {
-    return next(new ParamsNeeded('classcode needed'));
+    return next(new ParamsNeeded('Classcode needed'));
   }
 
   if (!usernameRequirements(classcode)) {
-    return next(new ParamsRequirements("classcode doesn't meet the requirements"));
+    return next(new ParamsRequirements("Classcode does not meet the requirements"));
   }
 
   return next();

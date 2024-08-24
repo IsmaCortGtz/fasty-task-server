@@ -15,13 +15,13 @@ export function checkJWT (request, response, next) {
   const decodedToken = jwt.verify(tokenString, process.env.JWT_SECRET);
 
   if (!tokenString || !decodedToken._id) {
-    return next(new JsonWebTokenError('token missing or invalid'));
+    return next(new JsonWebTokenError());
   }
 
   User.findById(decodedToken._id)
     .then(user => {
-      if (!user) return next(new JsonWebTokenError('token missing or invalid'));
-      if (decodedToken.username !== user.username) return next(new JsonWebTokenError('token missing or invalid'));
+      if (!user) return next(new JsonWebTokenError());
+      if (decodedToken.username !== user.username) return next(new JsonWebTokenError());
 
       const { _id, username } = decodedToken;
       request._id = _id;

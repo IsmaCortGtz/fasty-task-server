@@ -1,33 +1,15 @@
 import { UrlNotFound } from './errors.js';
 
-// Declaretion of errors actions
-const ERROR_HANDLERS = {
-  UnknowError: { code: 500, message: 'Unexpected error has been ocurred' },
-  SyntaxError: { code: 401, message: 'Invalid request' },
-  JsonWebTokenError: { code: 401, message: 'token missing or invalid' },
-  TokenExpiredError: { code: 401, message: 'token expired' },
-  ApiVersionError: { code: 400, message: 'api version error' },
-  UrlNotFound: { code: 404, message: 'url not found' },
-  PasswordNeeded: { code: 404, message: 'password needed' },
-  PasswordRequirements: { code: 404, message: "password doesn't meet the requirements" },
-  UsernameRequirements: { code: 404, message: "username doesn't meet the requirements" },
-  InvalidCredentials: { code: 401, message: 'invalid credentials' },
-  UsernameInUse: { code: 409, message: 'username already in use' },
-  CourseInUse: { code: 409, message: 'classcode already in use' },
-  AccessDenied: { code: 409, message: 'you do not have access for this source' },
-  ParamsNeeded: { code: 400, message: "some params doesn't found" },
-  ParamsRequirements: { code: 400, message: "some params doesn't meet the requirements" },
+// Default error handler
+function defaultError(error) {
+  console.error(error.name, error);
+  return { code: 500, message: 'Unexpected error has been ocurred', name: 'Unexpectederror' };
+}
 
-  defaultError: (error) => {
-    console.error(error.name, error);
-    return { code: 500, message: 'Unexpected error has been ocurred', name: 'Unexpectederror' };
-  }
-};
-
-// Handler
+// Handler for errors
 export function errorHandler (error, req, res, next) {
-  const handler = ERROR_HANDLERS[error.name] || ERROR_HANDLERS.defaultError(error);
-  return res.status(handler.code).json({ message: error.message || handler.message, name: error.name });
+  const handler = error.name && error.code && error.message ? error : defaultError(error);
+  return res.status(handler.code).json({ message: handler.message, name: handler.name });
 }
 
 // 404 handler
