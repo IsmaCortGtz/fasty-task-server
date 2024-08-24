@@ -8,7 +8,7 @@ You can see the full documentation of the project. Check the table below.
 - [Username Requeriments](./Password%20requeriments.md#username-requirements-)
 - [Environment Vars](./Environment%20Vars.md)
 - [APIv1 Schemas](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md)
-  - [Grapgic Diagram](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#grapgic-diagram)
+  - [Graphic Diagram](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#graphic-diagram)
   - [DB Schemas](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
     - [User](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-user)
     - [Course](./APIv1%20DB%20Schemas/APIv1%20DB%20Schemas.md#db-schema-course)

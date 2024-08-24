@@ -1,6 +1,6 @@
 # API v1 - User Endpoints
 
-The are all the user endpoints for the APIv1. You can go back [here](./README.md).
+There are all of the `User` endpoints for the APIv1. You can go back [here](./README.md).
 
 ### Table of content
 
@@ -42,14 +42,14 @@ The are all the user endpoints for the APIv1. You can go back [here](./README.md
 
   <tr>
     <td><b> Request <br> Body </b></td>
-    <td><code>{ "username": &lt;username&gt;,  "password": &lt;password&gt; }</code></td>
+    <td><code>{ "username": String,  "password": String }</code></td>
   </tr>
 
   <tr>
     <td><b> Response <br> on success </b></td>
     <td>
       <b>Code:</b> 201 Created <br>
-      <b>Content:</b> <code>{ "username": &lt;username&gt;, token: &lt;jwt&gt; }</code>
+      <b>Content:</b> <code>{ "username": String, token: String }</code>
     </td>
   </tr>
 
@@ -57,8 +57,8 @@ The are all the user endpoints for the APIv1. You can go back [here](./README.md
     <td rowspan="4"><b> Response <br> on error </b></td>
     <td>
       <b>Code:</b> 409 Conflict <br>
-      <b>Summary:</b> The given username already exists. <br>
-      <b>Content:</b> <code>{ "error": "Username already exists" }</code>
+      <b>Summary:</b> The given username already exists. You need to use another one. <br>
+      <b>Content:</b> <code>{ "messgae": "Username already in use", "name": "UsernameInUse" }</code>
     </td>
   </tr>
 

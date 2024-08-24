@@ -4,7 +4,7 @@ There are all of the DB Schemas from this API version. You can go back [here](..
 
 ### Table of content
 
-- [Grapgic Diagram](#grapgic-diagram)
+- [Graphic Diagram](#graphic-diagram)
 - [DB Schemas](#db-schema-user)
   - [User](#db-schema-user)
   - [Course](#db-schema-course)
