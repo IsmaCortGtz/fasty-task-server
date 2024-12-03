@@ -2,19 +2,8 @@
 import { User } from '../../../models/User/v1.js';
 import { JsonWebTokenError } from '../../../middlewares/errors.js';
 
-// Route
-export async function userInfoV1 (req, res, next) {
-  User.findById(req._id)
-    .then(user => {
-      if (!user) return next(new JsonWebTokenError());
-      const { _id, __v, password, ...result } = user.toObject();
-      return res.send(result);
-    })
-    .catch(error => next(error));
-}
-
 // Route keys
-export async function userInfoKeyV1 (req, res, next) {
+export async function userInfoV1 (req, res, next) {
   User.findById(req._id)
     .then(user => {
       if (!user) return next(new JsonWebTokenError());

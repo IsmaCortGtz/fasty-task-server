@@ -9,7 +9,7 @@ export default async function userSingupV1 (req, res, next) {
   const { username, password: plainPassword } = req.body;
 
   const user = await User.findOne({ username });
-  if (user) return next(new UsernameInUse('Username already exists'));
+  if (user) return next(new UsernameInUse());
 
   const newUser = new User({
     username,

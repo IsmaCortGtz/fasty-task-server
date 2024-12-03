@@ -16,9 +16,11 @@ There are all of the `User` endpoints for the APIv1. You can go back [here](./RE
 
 
 
-## POST `/api/v1/user/signup`
 
-<table><thead></thead>
+## POST `/api/v1/user/signup/`
+
+<details>
+<table>
 
   <tr>
     <td><b> Summary </b></td>
@@ -27,12 +29,12 @@ There are all of the `User` endpoints for the APIv1. You can go back [here](./RE
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/user/signup </td>
+    <td><code>/api/v1/user/signup/</code></td>
   </tr>
 
   <tr>
     <td><b> Method </b></td>
-    <td> POST </td>
+    <td><code>POST</code></td>
   </tr>
 
   <tr>
@@ -54,71 +56,21 @@ There are all of the `User` endpoints for the APIv1. You can go back [here](./RE
   </tr>
 
   <tr>
-    <td rowspan="4"><b> Response <br> on error </b></td>
+    <td rowspan="1"><b> Response <br> on error </b></td>
     <td>
-      <b>Code:</b> 409 Conflict <br>
+      <b>Code:</b> PPP <br>
       <b>Summary:</b> The given username already exists. You need to use another one. <br>
       <b>Content:</b> <code>{ "messgae": "Username already in use", "name": "UsernameInUse" }</code>
     </td>
   </tr>
-
-  <tr><td>
-      <b>Code:</b> 400 Bad Request <br>
-      <b>Summary:</b> You didn't give an username in the body request. <br>
-      <b>Content:</b> <code>{ "error": "username needed" }</code>
-  </td></tr>
-
-  <tr><td>
-      <b>Code:</b> 400 Bad Request <br>
-      <b>Summary:</b> You didn't give a password in the body request. <br>
-      <b>Content:</b> <code>{ "error": "password needed" }</code>
-  </td></tr>
-
-  <tr><td>
-      <b>Code:</b> 400 Bad Request
-      <span>
-
-  **Summary:** The password doesn't meet the requirements, you can see them [here](../Password%20requeriments.md).
-
-  </span>
-      <b>Content:</b> <code>{ "error": "password doesn't meet the requirements" }</code>
-  </td></tr>
-
 </table>
-
-### Usage Examples
-
-> [!CAUTION]
-> This example only will works if you execute the following JS in the browser console at the back-end page.
-
-> [!WARNING]
-> If you wanna try it out out you need to run the server in your machine and add [http://localhost:<PORT\>/api/v1/...](#) before the API URL, like this: [http://localhost:<PORT\>/api/v1/...](#)
-
-> [!NOTE]  
-> Keep in mind the CORS policy if you wanna use it at other page.
-
-```JS
-// Request data
-const requestBody = { username: "String", password: "String" };
-
-
-// JS Fetch
-const response = await fetch("/api/v1/user/signup", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(requestBody)
-});
-
-
-// JS Axios
-const response = await axios.post("/api/v1/user/signup", requestBody, { 
-  headers: { "Content-Type": "application/json" } 
-});
-```
+</details>
 
 
 
-## POST `/api/v1/user/login`
+
+
+## POST `/api/v1/user/login/`
 
 <table><thead></thead>
 
@@ -129,17 +81,17 @@ const response = await axios.post("/api/v1/user/signup", requestBody, {
 
   <tr>
     <td><b> URL </b></td>
-    <td> /api/v1/user/login </td>
+    <td><code> /api/v1/user/login/ </code></td>
   </tr>
 
   <tr>
     <td><b> Method </b></td>
-    <td> POST </td>
+    <td><code> POST </code></td>
   </tr>
 
   <tr>
     <td><b> Request <br> Headers </b></td>
-    <td><code>Content-Type: application/json</code></td>
+    <td><code> Content-Type: application/json </code></td>
   </tr>
 
   <tr>
@@ -158,9 +110,6 @@ const response = await axios.post("/api/v1/user/signup", requestBody, {
   <tr>
     <td><b> Response <br> on error </b></td>
     <td>
-      <b>Code:</b> 401 Unauthorized <br>
-      <b>Summary:</b> You didn't give the correct credentials in the body request. <br>
-      <b>Content:</b> <code>{ "error": "Invalid username or password" }</code>
     </td>
   </tr>
 

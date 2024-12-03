@@ -14,7 +14,7 @@ export default async function userUpdateV1 (req, res, next) {
   // Change username
   if (username && user.username !== username) {
     user.username = username;
-    status.username = 'ok';
+    status.username = true;
   }
 
   // Change password
@@ -22,12 +22,12 @@ export default async function userUpdateV1 (req, res, next) {
     if (await bcrypt.compare(oldPassword, user.password)) {
       if (meetRequirements(newPassword)) {
         user.password = await bcrypt.hash(newPassword, parseInt(process.env.BCRYPT_SALTROUND));
-        status.password = 'ok';
+        status.password = true;
       } else {
-        status.password = 'new password requirements error';
+        status.password = false;
       }
     } else {
-      status.password = 'wrong old password';
+      status.password = false;
     }
   }
 
@@ -35,7 +35,7 @@ export default async function userUpdateV1 (req, res, next) {
   if (config === null) {
     user.config = {};
     user.markModified('config');
-    status.config = 'ok';
+    status.config = true;
   }
 
   // Change config
@@ -44,14 +44,14 @@ export default async function userUpdateV1 (req, res, next) {
     Object.keys(config).forEach(key => {
       if (config[key] === null && user.config[key]) {
         delete user.config[key]; // Delete when is null
-        status.config[key] = 'ok';
+        status.config[key] = true;
         user.markModified('config');
         return;
       }
 
       if (typeof config[key] === 'object') {
         user.config[key] = config[key]; // Update config
-        status.config[key] = 'ok';
+        status.config[key] = true;
         user.markModified('config');
       }
     });
